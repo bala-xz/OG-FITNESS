@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | OG Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-black text-zinc-100 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="og-logo-main.png" alt="OG Fitness" class="h-8 md:h-10 w-auto">
+            </a>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-zinc-400 uppercase">
+                    <a href="index.html" class="hover:text-red-600 transition">Home</a>
+                    <a href="about.html" class="text-red-600">About</a>
+                    <a href="training.html" class="hover:text-red-600 transition">Training</a>
+                    <a href="trainers.html" class="hover:text-red-600 transition">Syndicate</a>
+                    <a href="membership.html" class="hover:text-red-600 transition">Membership</a>
+                    <a href="contact.html" class="hover:text-red-600 transition">Location & Contact</a>
+                </nav>
+                <a href="freepass.html" class="hidden sm:inline-block bg-red-600 hover:bg-red-500 text-white font-black px-6 py-2.5 uppercase tracking-wider text-xs transition">
+                    Trial Pass
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-open-btn" class="md:hidden text-zinc-300 hover:text-white focus:outline-none p-2" aria-label="Open Navigation">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Menu Backdrop Overlay -->
+    <div id="side-menu-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Mobile Side Drawer (1/2 Screen Width) -->
+    <aside id="side-menu" class="fixed top-0 right-0 h-full w-1/2 min-w-[240px] bg-zinc-950 border-l border-zinc-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between p-6">
+        <div>
+            <div class="flex items-center justify-between pb-6 border-b border-zinc-900">
+                <span class="text-xs font-black uppercase tracking-widest text-red-600">OG FITNESS</span>
+                <button id="mobile-menu-close-btn" class="text-zinc-400 hover:text-white p-2" aria-label="Close Navigation">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-5 pt-6 text-sm font-semibold tracking-wider uppercase text-zinc-300">
+                <a href="index.html" class="hover:text-red-600 transition">Home</a>
+                <a href="about.html" class="text-red-600 hover:text-red-500 transition">About</a>
+                <a href="training.html" class="hover:text-red-600 transition">Training</a>
+                <a href="trainers.html" class="hover:text-red-600 transition">Syndicate</a>
+                <a href="membership.html" class="hover:text-red-600 transition">Membership</a>
+                <a href="contact.html" class="hover:text-red-600 transition">Contact</a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-zinc-900">
+            <a href="freepass.html" class="block text-center bg-red-600 hover:bg-red-500 text-white font-black py-3 uppercase tracking-wider text-xs transition">
+                Trial Pass
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <section class="pt-32 pb-24 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-20">
+            <span class="text-red-600 text-xs font-black uppercase tracking-widest">Uncompromising Strength</span>
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mt-2 mb-4 italic">About OG Fitness</h1>
+            <p class="text-zinc-400 max-w-2xl mx-auto">Built for those who demand excellence, push physical boundaries, and rule their domain through serious results.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+            <div class="space-y-6">
+                <span class="text-red-600 font-bold uppercase tracking-widest text-xs">Our Genesis</span>
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight italic">More Than Just a Gym. It’s an Arena.</h2>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    OG Fitness was established with a singular mission: to provide an elite, uncompromising training environment equipped for serious results. Located in the heart of Vijayawada, we cut through the noise of commercial fitness to deliver state-of-the-art strength conditioning, professional coaching, and a relentless community.
+                </p>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Whether you are an experienced athlete looking to break plateaus or a beginner committed to a total transformation, our facility provides top-tier equipment and expert guidance every step of the way.
+                </p>
+            </div>
+            <div class="bg-zinc-950 border border-zinc-900 p-8 relative">
+                <div class="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-red-600"></div>
+                <div class="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-red-600"></div>
+                <ul class="space-y-6">
+                    <li class="flex items-start space-x-4">
+                        <div class="text-red-600 text-xl font-black mt-1">01</div>
+                        <div>
+                            <h4 class="text-white font-bold uppercase tracking-wider text-sm">Premium Equipment</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Meticulously maintained, heavy-duty gear built for maximum mechanical output.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <div class="text-red-600 text-xl font-black mt-1">02</div>
+                        <div>
+                            <h4 class="text-white font-bold uppercase tracking-wider text-sm">Elite Coaching Syndicate</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Passionate professionals dedicated to refining your form, strength, and mindset.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <div class="text-red-600 text-xl font-black mt-1">03</div>
+                        <div>
+                            <h4 class="text-white font-bold uppercase tracking-wider text-sm">Relentless Atmosphere</h4>
+                            <p class="text-zinc-400 text-xs mt-1">A focused, distraction-free environment surrounded by driven individuals.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight italic">Training Pillars</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
+                    <div class="text-3xl text-red-600 mb-4"><i class="fa-solid fa-dumbbell"></i></div>
+                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">Strength & Conditioning</h4>
+                    <p class="text-zinc-400 text-xs">Heavy lifting zones and specialized platforms designed to build raw power and structural integrity.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
+                    <div class="text-3xl text-red-600 mb-4"><i class="fa-solid fa-fire"></i></div>
+                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">High-Intensity HIIT</h4>
+                    <p class="text-zinc-400 text-xs">Cardio and circuit training setups engineered to shred fat, boost endurance, and maximize output.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
+                    <div class="text-3xl text-red-600 mb-4"><i class="fa-solid fa-user-shield"></i></div>
+                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">Personal Training</h4>
+                    <p class="text-zinc-400 text-xs">Customized programs, nutritional alignment, and 1-on-1 accountability mapped to your specific goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800 p-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-red-600/5 pointer-events-none"></div>
+            <h3 class="text-2xl md:text-4xl font-black uppercase tracking-tight italic mb-4">Ready to Rule Your Domain?</h3>
+            <p class="text-zinc-400 text-xs md:text-sm max-w-xl mx-auto mb-8">Step inside our facility, claim your trial pass, and experience elite fitness firsthand.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="freepass.html" class="bg-red-600 hover:bg-red-500 text-white font-black py-3 px-8 uppercase tracking-wider text-xs transition">Claim Trial Pass</a>
+                <a href="contact.html" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3 px-8 uppercase tracking-wider text-xs transition">Contact Location</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elite Professional Footer (2-Column Side-by-Side on Mobile) -->
+    <footer class="bg-black border-t border-zinc-900 text-zinc-400 py-16 text-sm">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+            <div class="col-span-2 sm:col-span-1 space-y-4">
+                <img src="og-logo-main.png" alt="OG Fitness" class="h-8 w-auto">
+                <p class="text-xs text-zinc-500 leading-relaxed">
+                    Uncompromising strength, elite conditioning, and a relentless environment built for those who rule their domain.
+                </p>
+                <div class="flex space-x-4 text-zinc-400">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-red-600 transition" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="hover:text-red-600 transition" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+                    <a href="https://share.google/8twlrd1RczQuOFBE2" target="_blank" class="hover:text-red-600 transition" title="Google Maps"><i class="fa-solid fa-location-dot text-lg"></i></a>
+                    <a href="tel:+910000000000" class="hover:text-red-600 transition" title="Call Front Desk"><i class="fa-solid fa-phone text-lg"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Navigation</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-red-600 transition">Home Arena</a></li>
+                    <li><a href="classes.html" class="hover:text-red-600 transition">Workouts & Classes</a></li>
+                    <li><a href="trainers.html" class="hover:text-red-600 transition">The Syndicate</a></li>
+                    <li><a href="membership.html" class="hover:text-red-600 transition">Membership Tiers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Client Access</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="freepass.html" class="hover:text-red-600 transition">Claim Floor Tour Pass</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600 transition">Location & Socials</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1">
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Arena Status</h4>
+                <p class="text-xs text-zinc-500 mb-2">Mon – Sat: 5:00 AM – 10:00 PM</p>
+                <p class="text-xs text-zinc-500 mb-4">Sun: 6:00 AM – 12:00 PM</p>
+                <span class="inline-block bg-red-600/10 border border-red-600/30 text-red-500 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1">🟢 Systems Active</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-600">
+            <p>&copy; 2026 OG Fitness. All rights reserved. Designed for elite local performance.</p>
+            <p class="mt-2 sm:mt-0 uppercase tracking-widest text-[10px]">They Call Him OG</p>
+        </div>
+    </footer>
+
+    <!-- Side Drawer Toggle Script -->
+    <script>
+        const openBtn = document.getElementById('mobile-menu-open-btn');
+        const closeBtn = document.getElementById('mobile-menu-close-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('side-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                sideMenu.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sideMenu.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        openBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        overlay.addEventListener('click', () => toggleMenu(false));
+    </script>
+</body>
+</html>
