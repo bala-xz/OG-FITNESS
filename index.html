@@ -14,23 +14,23 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Sleek VIP Offer Banner -->
-    <section class="bg-zinc-950 border-b border-zinc-800 text-white py-3 mt-20 md:mt-24 relative overflow-hidden">
+    <section class="bg-zinc-950 border-b border-zinc-900 text-white py-3.5 mt-20 md:mt-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             
             <!-- Mobile-Only View (< 768px) -->
             <div class="md:hidden flex items-center justify-between gap-3">
                 <span class="bg-brand text-white text-[9px] font-black uppercase tracking-widest px-1.5 py-2 shrink-0 [writing-mode:vertical-lr] rotate-180 text-center leading-none">
-                    Limited Offer
+                    VIP Offer
                 </span>
                 <div class="flex-1 min-w-0 pr-1">
                     <h4 class="text-xs font-black uppercase italic tracking-wide text-white leading-tight">
                         Annual Dual Advantage
                     </h4>
-                    <p class="text-[11px] text-zinc-300 font-medium leading-snug mt-0.5">
+                    <p class="text-[11px] text-zinc-400 font-medium leading-snug mt-0.5">
                         Pay for 6 months and get 6 months free with full arena access.
                     </p>
                 </div>
-                <a href="membership.html" class="shrink-0 bg-brand hover:bg-brand text-white font-black px-3.5 py-2 uppercase tracking-wider text-[11px] transition shadow-md shadow-red-950/50 whitespace-nowrap">
+                <a href="membership.html" class="shrink-0 bg-brand hover:bg-red-700 text-white font-black px-3.5 py-2 uppercase tracking-wider text-[11px] transition shadow-[0_0_15px_rgba(220,38,38,0.4)] whitespace-nowrap">
                     Claim Offer
                 </a>
             </div>
@@ -39,7 +39,7 @@
             <div class="hidden md:flex items-center justify-between gap-4">
                 <div class="flex items-center space-x-4 text-left">
                     <span class="bg-brand text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 shrink-0">
-                        Limited offer
+                        Limited Offer
                     </span>
                     <div>
                         <h3 class="text-sm font-black uppercase italic tracking-wide text-white">
@@ -50,7 +50,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="membership.html" class="bg-brand hover:bg-brand text-white font-black px-4 py-1.5 uppercase tracking-wider text-xs transition whitespace-nowrap">
+                <a href="membership.html" class="bg-brand hover:bg-red-700 text-white font-black px-5 py-2 uppercase tracking-widest text-xs transition shadow-[0_0_20px_rgba(220,38,38,0.4)] whitespace-nowrap">
                     Claim Offer
                 </a>
             </div>
@@ -58,26 +58,41 @@
         </div>
     </section>
 
-    <!-- Hero Section -->
-    <section class="relative py-24 md:py-32 flex items-center justify-center bg-black overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-cover bg-center grayscale contrast-125 opacity-40" style="background-image: url('og-equipment.webp')"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40 z-10"></div>
+    <!-- Cinematic Video Hero Section -->
+    <section class="relative h-[90vh] w-full flex items-center justify-center overflow-hidden bg-black">
+        <!-- Background Video (Drop your MP4 file in your folder and name it 'gym-background.mp4') -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 z-0">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+
+        <!-- Static Fallback Image (Shows instantly while video loads or if video is missing) -->
+        <div class="absolute inset-0 z-[-1] bg-cover bg-center grayscale contrast-125 opacity-25" style="background-image: url('og-equipment.webp')"></div>
+
+        <!-- Dark Cinematic Gradients -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/70 z-10"></div>
         
-        <div class="relative z-20 max-w-4xl mx-auto text-center px-6">
-            <span class="inline-block py-1 px-3 bg-red-600/10 border-l-4 border-brand text-brand text-[11px] font-black uppercase tracking-widest mb-4">Transform Your Body</span>
+        <div class="relative z-20 max-w-4xl mx-auto text-center px-6 space-y-6">
+            <span class="inline-block py-1.5 px-4 bg-red-600/10 border-l-4 border-brand text-brand text-xs font-black uppercase tracking-[0.3em]">
+                TRANSFORM YOUR BODY.
+            </span>
             
-            <div class="mb-4 flex justify-center">
-                <img src="og-logo.png" alt="They Call Him OG" class="max-h-28 md:max-h-36 w-auto drop-shadow-[0_10px_20px_rgba(220,38,38,0.5)]">
+            <div class="flex justify-center">
+                <img src="og-logo.png" alt="They Call Him OG" class="max-h-24 md:max-h-32 w-auto drop-shadow-[0_10px_30px_rgba(220,38,38,0.6)]">
             </div>
             
-            <p class="text-xs md:text-sm text-zinc-300 mb-6 max-w-xl mx-auto font-medium tracking-wide uppercase">
+            <h1 class="text-3xl md:text-6xl font-black uppercase tracking-tight text-white italic leading-none">
+                Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500">Strongest Self</span>
+            </h1>
+
+            <p class="text-xs md:text-sm text-zinc-400 max-w-xl mx-auto font-medium tracking-wide uppercase leading-relaxed">
                 Explore our state-of-the-art gym layout, custom architectural lighting, and elite machinery arsenal.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="freepass.html" class="w-full sm:w-auto bg-brand hover:bg-brand text-white font-black px-6 py-3 text-xs uppercase tracking-widest transition shadow-xl shadow-red-950/80">
-                    Trail Pass
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="freepass.html" class="w-full sm:w-auto bg-brand hover:bg-red-700 text-white font-black px-8 py-4 text-xs uppercase tracking-widest transition shadow-[0_0_25px_rgba(220,38,38,0.5)]">
+                    Trial Pass
                 </a>
-                <a href="training.html" class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold px-6 py-3 text-xs uppercase tracking-widest transition">
+                <a href="training.html" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 text-white font-black px-8 py-4 text-xs uppercase tracking-widest transition">
                     Explore Training
                 </a>
             </div>
@@ -85,48 +100,48 @@
     </section>
 
     <!-- Live Floor Metrics & Activity Bar -->
-    <section class="bg-zinc-950 border-y border-zinc-900 py-5">
+    <section class="bg-zinc-950 border-y border-zinc-900 py-6 relative z-20">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div class="border-r border-zinc-900 last:border-none">
                 <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Operating Hours</p>
-                <p class="text-base font-black uppercase tracking-wider text-emerald-400">Mon - Sat (5AM - 10PM)</p>
+                <p class="text-sm md:text-base font-black uppercase tracking-wider text-emerald-400">Mon - Sat (5AM - 10PM)</p>
             </div>
             <div class="border-r border-zinc-900 last:border-none">
                 <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Coaching Support</p>
-                <p class="text-base font-black uppercase tracking-wider text-white">Expert Trainers</p>
+                <p class="text-sm md:text-base font-black uppercase tracking-wider text-white">Expert Trainers</p>
             </div>
             <div class="border-r border-zinc-900 last:border-none">
                 <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Training Zones</p>
-                <p class="text-base font-black uppercase tracking-wider text-white">Strength & Cardio</p>
+                <p class="text-sm md:text-base font-black uppercase tracking-wider text-white">Strength & Cardio</p>
             </div>
             <div>
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Branch Access</p>
-                <p class="text-base font-black uppercase tracking-wider text-emerald-400">Dual Locations</p>
+                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Your Health</p>
+                <p class="text-sm md:text-base font-black uppercase tracking-wider text-emerald-400">Our Highest Standard</p>
             </div>
         </div>
     </section>
 
     <!-- High-Impact Feature Grid -->
-    <section class="py-16 bg-black border-t border-zinc-900">
+    <section class="py-20 bg-black border-t border-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-brand text-xs font-black uppercase tracking-widest">Uncompromising Standards</span>
-                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight mt-2 italic">Designed For Elite Performance</h2>
+                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight mt-2 italic text-white">Designed For Elite Performance</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition group">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Architectural Layout</h3>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
+                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Architectural Layout</h3>
                     <p class="text-zinc-400 text-xs leading-relaxed">Engineered with custom spatial geometry, specialized lighting grids, and optimized training zones.</p>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition group">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-dumbbell"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Machinery Arsenal</h3>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
+                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-dumbbell"></i></div>
+                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Machinery Arsenal</h3>
                     <p class="text-zinc-400 text-xs leading-relaxed">Equipped with premium resistance machines, heavy-duty racks, and specialized functional fitness tools.</p>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition group">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-eye"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Guided Floor Tour</h3>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
+                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Guided Floor Tour</h3>
                     <p class="text-zinc-400 text-xs leading-relaxed">Book a secure morning slot to walk through the facility and inspect the training ecosystem.</p>
                 </div>
             </div>
@@ -134,23 +149,23 @@
     </section>
 
     <!-- Visual Showcase Section -->
-    <section class="py-16 bg-zinc-950 border-t border-zinc-900">
+    <section class="py-20 bg-zinc-950 border-t border-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-brand text-xs font-black uppercase tracking-widest">Inside The Arena</span>
-                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight mt-2 mb-4 italic">Built For Legends</h2>
-                <p class="text-zinc-400 text-xs">Take a look at our custom environment designed for absolute intensity.</p>
+                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight mt-2 mb-4 italic text-white">Built For Legends</h2>
+                <p class="text-zinc-400 text-xs uppercase tracking-wider">Take a look at our custom environment designed for absolute intensity.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="overflow-hidden border border-zinc-900 relative group">
-                    <img src="og-equipment.webp" alt="OG Fitness Floor" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-4 left-4 text-sm font-black uppercase italic tracking-wider text-white">Main Training Floor & Equipment</span>
+                    <img src="og-equipment.webp" alt="OG Fitness Floor" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <span class="absolute bottom-6 left-6 text-sm font-black uppercase italic tracking-wider text-white">Main Training Floor & Equipment</span>
                 </div>
                 <div class="overflow-hidden border border-zinc-900 relative group">
-                    <img src="og-artwork.webp" alt="OG Fitness Murals" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-4 left-4 text-sm font-black uppercase italic tracking-wider text-white">Custom Artwork & Combat Zone</span>
+                    <img src="og-artwork.webp" alt="OG Fitness Murals" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <span class="absolute bottom-6 left-6 text-sm font-black uppercase italic tracking-wider text-white">Custom Artwork & Combat Zone</span>
                 </div>
             </div>
         </div>

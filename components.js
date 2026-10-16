@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="index.html" class="hover:text-brand transition">Home</a>
                     <a href="about.html" class="hover:text-brand transition">About</a>
                     <a href="training.html" class="hover:text-brand transition">Training</a>
-                    <a href="trainers.html" class="hover:text-brand transition">Syndicate</a>
+                    <a href="trainers.html" class="hover:text-brand transition">Coaches</a>
                     <a href="membership.html" class="hover:text-brand transition">Membership</a>
                     <a href="contact.html" class="hover:text-brand transition">Location & Contact</a>
                 </nav>
                 <a href="freepass.html" class="hidden sm:inline-block bg-brand hover:bg-brand text-white font-black px-6 py-2.5 uppercase tracking-wider text-xs transition shadow-lg shadow-red-950/50">
-                    Trail Pass
+                    Trial Pass
                 </a>
 
                 <button id="mobile-menu-open-btn" class="md:hidden text-zinc-300 hover:text-white focus:outline-none p-2" aria-label="Open Navigation">
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class="pt-6 border-t border-zinc-900">
             <a href="freepass.html" class="block text-center bg-brand hover:bg-brand text-white font-black py-3 uppercase tracking-wider text-xs transition shadow-lg shadow-red-950/50">
-                Trail Pass
+                Trial Pass
             </a>
         </div>
     </aside>`;
@@ -75,15 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 <ul class="space-y-2 text-xs">
                     <li><a href="index.html" class="hover:text-brand transition">Home Arena</a></li>
                     <li><a href="training.html" class="hover:text-brand transition">Workouts & Training</a></li>
-                    <li><a href="trainers.html" class="hover:text-brand transition">The Syndicate</a></li>
-                    <li><a href="membership.html" class="hover:text-brand transition">Membership Tiers</a></li>
+                    <li><a href="trainers.html" class="hover:text-brand transition">Coaches</a></li>
+                    <li><a href="membership.html" class="hover:text-brand transition">Membership </a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Client Access</h4>
                 <ul class="space-y-2 text-xs">
-                    <li><a href="freepass.html" class="hover:text-brand transition">Claim Floor Tour Pass</a></li>
+                    <li><a href="freepass.html" class="hover:text-brand transition">Claim Trial Pass</a></li>
                     <li><a href="contact.html" class="hover:text-brand transition">Location & Socials</a></li>
                 </ul>
             </div>
