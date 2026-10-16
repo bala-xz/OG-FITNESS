@@ -1,0 +1,16 @@
+:root {
+    --brand-color: #dc2626;      /* Change this ONE hex code to update your entire theme color! */
+    --brand-hover: #ef4444;      /* Hover state for your theme color */
+}
+
+/* Custom theme mapping classes */
+.bg-brand { background-color: var(--brand-color); }
+.bg-brand:hover { background-color: var(--brand-hover); }
+.text-brand { color: var(--brand-color); }
+.border-brand { border-color: var(--brand-color); }
+.selection-brand::selection { background-color: var(--brand-color); color: #ffffff; }
+
+/* Smooth scrolling baseline */
+html {
+    scroll-behavior: smooth;
+}
