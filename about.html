@@ -3,94 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | OG Fitness</title>
+    <title>Genesis & About Us | OG Fitness</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Main Content -->
-    <section class="pt-32 pb-24 max-w-6xl mx-auto px-6">
-        <div class="text-center mb-20">
-            <span class="text-brand text-xs font-black uppercase tracking-widest">Uncompromising Strength</span>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mt-2 mb-4 italic">About OG Fitness</h1>
-            <p class="text-zinc-400 max-w-2xl mx-auto">Built for those who demand excellence, push physical boundaries, and rule their domain through serious results.</p>
-        </div>
+    <!-- Header Section -->
+    <section class="pt-40 pb-16 max-w-7xl mx-auto px-6 text-center relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+        <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-[0.3em] border-b border-brand pb-1">
+            UNCOMPROMISING STRENGTH
+        </span>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-black uppercase tracking-tight mt-3 mb-4 italic text-white">
+            About OG Fitness
+        </h1>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto font-mono-tech uppercase tracking-wider">
+            Built for those who demand excellence, push biological boundaries, and rule their domain through serious results.
+        </p>
+    </section>
+
+    <!-- Genesis Story Grid -->
+    <section class="pb-24 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            
             <div class="space-y-6">
-                <span class="text-brand font-bold uppercase tracking-widest text-xs">Our Genesis</span>
-                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight italic">More Than Just a Gym. It’s an Arena.</h2>
-                <p class="text-zinc-400 text-sm leading-relaxed">
-                    OG Fitness was established with a singular mission: to provide an elite, uncompromising training environment equipped for serious results. Located in the heart of Vijayawada, we cut through the noise of commercial fitness to deliver state-of-the-art strength conditioning, professional coaching, and a relentless community.
+                <span class="text-brand font-mono-tech font-bold uppercase tracking-widest text-xs border-l-2 border-brand pl-3">
+                    OUR GENESIS
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-black uppercase tracking-tight italic text-white leading-none">
+                    More Than Just A Gym. <br>
+                    <span class="text-brand">It’s An Arena.</span>
+                </h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed">
+                    OG Fitness was established with a singular mission: to provide an elite, uncompromising training environment equipped for serious results. Located on BRTS Road in Durgapuram, Vijayawada, we cut through the noise of commercial fitness to deliver state-of-the-art strength conditioning, professional coaching, and a relentless community.
                 </p>
-                <p class="text-zinc-400 text-sm leading-relaxed">
-                    Whether you are an experienced athlete looking to break plateaus or a beginner committed to a total transformation, our facility provides top-tier equipment and expert guidance every step of the way.
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed">
+                    Whether you are an experienced athlete looking to break plateaus or a beginner committed to a total physical transformation, our facility provides top-tier biomechanical equipment and expert guidance every step of the way.
                 </p>
+                
+                <div class="pt-4 flex items-center space-x-6 font-mono-tech text-xs">
+                    <div>
+                        <p class="text-2xl font-black text-white italic">100%</p>
+                        <p class="text-zinc-500 uppercase">Focus & Iron</p>
+                    </div>
+                    <div class="border-l border-zinc-800 pl-6">
+                        <p class="text-2xl font-black text-brand italic">5AM–10PM</p>
+                        <p class="text-zinc-500 uppercase">Daily Access</p>
+                    </div>
+                </div>
             </div>
-            <div class="bg-zinc-950 border border-zinc-900 p-8 relative">
+
+            <!-- Pillars Box -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 sm:p-10 relative rounded">
                 <div class="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-brand"></div>
                 <div class="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-brand"></div>
-                <ul class="space-y-6">
-                    <li class="flex items-start space-x-4">
-                        <div class="text-brand text-xl font-black mt-1">01</div>
+                
+                <ul class="space-y-8 font-mono-tech">
+                    <li class="flex items-start space-x-5">
+                        <div class="text-brand text-2xl font-heading font-black mt-0.5">01</div>
                         <div>
-                            <h4 class="text-white font-bold uppercase tracking-wider text-sm">Premium Equipment</h4>
-                            <p class="text-zinc-400 text-xs mt-1">Meticulously maintained, heavy-duty gear built for maximum mechanical output.</p>
+                            <h4 class="text-white font-bold uppercase tracking-wider text-sm">Premium Biomechanical Gear</h4>
+                            <p class="text-zinc-400 text-xs mt-1 leading-relaxed">Meticulously maintained, heavy-duty machinery built for maximum mechanical tension and joint preservation.</p>
                         </div>
                     </li>
-                    <li class="flex items-start space-x-4">
-                        <div class="text-brand text-xl font-black mt-1">02</div>
+                    <li class="flex items-start space-x-5">
+                        <div class="text-brand text-2xl font-heading font-black mt-0.5">02</div>
                         <div>
                             <h4 class="text-white font-bold uppercase tracking-wider text-sm">Elite Coaching Syndicate</h4>
-                            <p class="text-zinc-400 text-xs mt-1">Passionate professionals dedicated to refining your form, strength, and mindset.</p>
+                            <p class="text-zinc-400 text-xs mt-1 leading-relaxed">Passionate coaches dedicated to refining your biomechanics, strength progression, and athletic mindset.</p>
                         </div>
                     </li>
-                    <li class="flex items-start space-x-4">
-                        <div class="text-brand text-xl font-black mt-1">03</div>
+                    <li class="flex items-start space-x-5">
+                        <div class="text-brand text-2xl font-heading font-black mt-0.5">03</div>
                         <div>
                             <h4 class="text-white font-bold uppercase tracking-wider text-sm">Relentless Atmosphere</h4>
-                            <p class="text-zinc-400 text-xs mt-1">A focused, distraction-free environment surrounded by driven individuals.</p>
+                            <p class="text-zinc-400 text-xs mt-1 leading-relaxed">A focused, distraction-free environment surrounded by driven individuals striving for personal mastery.</p>
                         </div>
                     </li>
                 </ul>
             </div>
+
         </div>
 
-        <div class="mb-24">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight italic">Training Pillars</h3>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-dumbbell"></i></div>
-                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">Strength & Conditioning</h4>
-                    <p class="text-zinc-400 text-xs">Heavy lifting zones and specialized platforms designed to build raw power and structural integrity.</p>
-                </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-fire"></i></div>
-                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">High-Intensity HIIT</h4>
-                    <p class="text-zinc-400 text-xs">Cardio and circuit training setups engineered to shred fat, boost endurance, and maximize output.</p>
-                </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 text-center">
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-user-shield"></i></div>
-                    <h4 class="text-lg font-bold uppercase tracking-wider mb-2">Personal Training</h4>
-                    <p class="text-zinc-400 text-xs">Customized programs, nutritional alignment, and 1-on-1 accountability mapped to your specific goals.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800 p-12 text-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-red-600/5 pointer-events-none"></div>
-            <h3 class="text-2xl md:text-4xl font-black uppercase tracking-tight italic mb-4">Ready to Rule Your Domain?</h3>
-            <p class="text-zinc-400 text-xs md:text-sm max-w-xl mx-auto mb-8">Step inside our facility, claim your trial pass, and experience elite fitness firsthand.</p>
+        <!-- Call to Action Banner -->
+        <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800 p-10 sm:p-14 text-center relative overflow-hidden rounded shadow-2xl">
+            <span class="text-brand text-xs font-mono-tech font-bold uppercase tracking-widest">BECOME PART OF THE LEGACY</span>
+            <h3 class="text-3xl sm:text-5xl font-heading font-black uppercase tracking-tight italic mb-4 text-white mt-2">
+                Ready to Rule Your Domain?
+            </h3>
+            <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech max-w-xl mx-auto mb-8">
+                Step inside our facility in Vijayawada, claim your trial pass, and experience elite fitness firsthand.
+            </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="freepass.html" class="bg-brand hover:bg-brand text-white font-black py-3 px-8 uppercase tracking-wider text-xs transition">Claim Trial Pass</a>
-                <a href="contact.html" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3 px-8 uppercase tracking-wider text-xs transition">Contact Location</a>
+                <a href="freepass.html" class="bg-brand hover:bg-red-700 text-white font-black py-4 px-8 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                    Claim Free Trial Pass
+                </a>
+                <a href="contact.html" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-4 px-8 uppercase tracking-widest text-xs transition">
+                    Contact Location
+                </a>
             </div>
         </div>
     </section>
@@ -98,7 +132,8 @@
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader Script -->
+    <!-- Scripts -->
     <script src="components.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,6 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap');
+
 :root {
-    --brand-color: #dc2626;      /* Change this ONE hex code to update your entire theme color! */
-    --brand-hover: #ef4444;      /* Hover state for your theme color */
+    --brand-color: #ff1e27;
+    --brand-hover: #dc2626;
+    --brand-glow: rgba(255, 30, 39, 0.45);
+    --brand-glow-lg: 0 0 35px rgba(255, 30, 39, 0.55);
+    --bg-dark: #070709;
+    --bg-darker: #040405;
+    --bg-card: rgba(15, 15, 18, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(255, 30, 39, 0.35);
+    --accent-emerald: #10b981;
+}
+
+/* Base resets & typography */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-dark);
+    color: #f4f4f5;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+    position: relative;
+    selection-background-color: var(--brand-color);
+}
+
+::selection {
+    background-color: var(--brand-color);
+    color: #ffffff;
+}
+
+.font-heading {
+    font-family: 'Cabinet Grotesk', 'Syne', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.font-mono-tech {
+    font-family: 'Space Grotesk', monospace;
 }
 
 /* Custom theme mapping classes */
@@ -10,7 +49,213 @@
 .border-brand { border-color: var(--brand-color); }
 .selection-brand::selection { background-color: var(--brand-color); color: #ffffff; }
 
-/* Smooth scrolling baseline */
-html {
-    scroll-behavior: smooth;
+/* Cyberpunk Carbon Grid Background */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 30, 39, 0.12) 0%, rgba(7, 7, 9, 0.85) 60%, var(--bg-dark) 100%);
+}
+
+.bg-radial-card {
+    background: radial-gradient(circle at top right, rgba(255, 30, 39, 0.06), transparent 70%), rgba(14, 14, 18, 0.8);
+}
+
+/* Glassmorphism */
+.glass-panel {
+    background: rgba(14, 14, 18, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+}
+
+.glass-panel-glow {
+    background: rgba(16, 16, 20, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 30, 39, 0.25);
+    box-shadow: 0 0 30px rgba(255, 30, 39, 0.12);
+}
+
+/* Glowing text and shadows */
+.text-glow-red {
+    text-shadow: 0 0 20px rgba(255, 30, 39, 0.6), 0 0 40px rgba(255, 30, 39, 0.3);
+}
+
+.shadow-brand-glow {
+    box-shadow: 0 0 25px rgba(255, 30, 39, 0.45);
+}
+
+.shadow-brand-heavy {
+    box-shadow: 0 10px 40px -10px rgba(255, 30, 39, 0.6);
+}
+
+/* 3D Card Hover Perspective Styles */
+.tilt-card {
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tilt-card:hover {
+    border-color: rgba(255, 30, 39, 0.4);
+    box-shadow: 0 20px 45px -15px rgba(255, 30, 39, 0.25);
+}
+
+.tilt-card .glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+}
+
+.tilt-card:hover .glare {
+    opacity: 1;
+}
+
+/* 3D Holographic Card Shimmer */
+.hologram-shimmer {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 30, 39, 0.18) 25%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 30, 39, 0.18) 75%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 300% 300%;
+    animation: holoShine 7s ease infinite;
+}
+
+@keyframes holoShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Subtle laser scanline */
+.laser-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff1e27, transparent);
+    box-shadow: 0 0 10px #ff1e27;
+    animation: scanMove 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanMove {
+    0% { top: 0%; opacity: 0; }
+    15% { opacity: 0.8; }
+    85% { opacity: 0.8; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Continuous Athletic Marquee */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    user-select: none;
+}
+
+.marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pulse Rings */
+.pulse-ring {
+    position: relative;
+}
+
+.pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid var(--brand-color);
+    animation: pulseRingAnim 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes pulseRingAnim {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08080a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1e27;
+}
+
+/* Custom interactive range sliders */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: #18181b;
+    height: 6px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff1e27;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 30, 39, 0.8);
+    transition: transform 0.15s ease, background-color 0.15s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-3d-wrapper {
+        min-height: 480px;
+    }
 }

@@ -4,118 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Trial Pass | OG Fitness</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Content -->
-    <section class="pt-32 pb-24 max-w-xl mx-auto px-6">
-        <div class="text-center mb-10">
-            <span class="text-brand text-xs font-black uppercase tracking-widest">Strictly Authenticated Access</span>
-            <h1 class="text-3xl md:text-4xl font-black uppercase tracking-tight mt-2 mb-3 italic">Executive Trial Pass</h1>
-            <p class="text-zinc-400 text-xs">One-time device authentication. Valid for a 1-hour session.</p>
-            
-            <!-- Hygiene & Safety Badge -->
-            <div class="mt-4 inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 text-xs text-zinc-300">
-                <i class="fa-solid fa-shield-halved text-brand"></i>
-                <span>Equipped with Touch-Free Hygiene & Sanitization Stations</span>
-            </div>
+    <!-- Header Section -->
+    <section class="pt-40 pb-12 max-w-xl mx-auto px-6 text-center relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-[0.3em] border-b border-brand pb-1">
+            STRICTLY AUTHENTICATED ACCESS
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-heading font-black uppercase tracking-tight mt-3 mb-3 italic text-white">
+            Executive Trial Pass
+        </h1>
+        <p class="text-zinc-400 text-xs font-mono-tech uppercase tracking-wider">
+            One-time device authentication. Valid for a single 1-hour session with full arena access.
+        </p>
+        
+        <!-- Hygiene & Safety Badge -->
+        <div class="mt-4 inline-flex items-center gap-2 bg-zinc-950 border border-zinc-800 px-3.5 py-1.5 text-xs text-zinc-300 font-mono-tech shadow-lg">
+            <i class="fa-solid fa-shield-halved text-brand"></i>
+            <span>Equipped with Touch-Free Hygiene & Sanitization Stations</span>
         </div>
+    </section>
 
-
+    <!-- Pass Authentication Form & Digital Pass Box -->
+    <section class="pb-24 max-w-xl mx-auto px-6">
+        
         <!-- Input Form -->
-        <div id="form-container" class="bg-zinc-950 border border-zinc-900 p-8 shadow-2xl">
-            <form id="passForm" onsubmit="generateSecurePass(event)" class="space-y-5">
+        <div id="form-container" class="bg-zinc-950 border border-zinc-800 p-8 shadow-2xl rounded relative">
+            <div class="absolute -top-3 left-6 bg-brand text-white font-black px-3 py-0.5 text-[9px] uppercase tracking-widest font-mono-tech">
+                SECURITY VERIFICATION
+            </div>
+
+            <form id="passForm" onsubmit="generateSecurePass(event)" class="space-y-5 font-mono-tech">
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Full Name</label>
-                    <input type="text" id="passName" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-sm" placeholder="Ojas Gambheera">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Athlete Full Name</label>
+                    <input type="text" id="passName" required class="w-full bg-black border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-xs uppercase tracking-wider font-bold transition" placeholder="Ojas Gambheera">
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Phone Number</label>
-                        <input type="tel" id="passPhone" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-sm" placeholder="+91 00000 00000">
+                        <input type="tel" id="passPhone" required class="w-full bg-black border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-xs transition" placeholder="+91 95537 00000">
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Email Address</label>
-                        <input type="email" id="passEmail" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-sm" placeholder="legend@ogfitness.com">
+                        <input type="email" id="passEmail" required class="w-full bg-black border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-xs transition" placeholder="athlete@domain.com">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Select Date</label>
-                        <input type="date" id="passDate" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-sm [color-scheme:dark]">
+                        <input type="date" id="passDate" required class="w-full bg-black border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-xs [color-scheme:dark] transition">
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Time Slot</label>
-                        <select id="passSlot" class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-sm">
-                            <option value="06:00 AM - 07:00 AM">06:00 AM – 07:00 AM</option>
-                            <option value="07:00 AM - 08:00 AM">07:00 AM – 08:00 AM</option>
-                            <option value="08:00 AM - 09:00 AM">08:00 AM – 09:00 AM</option>
-                            <option value="05:00 PM - 06:00 PM">05:00 PM – 06:00 PM</option>
-                            <option value="06:00 PM - 07:00 PM">06:00 PM – 07:00 PM</option>
+                        <select id="passSlot" class="w-full bg-black border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-brand text-xs transition">
+                            <option value="06:00 AM - 07:00 AM">06:00 AM – 07:00 AM (Early Iron)</option>
+                            <option value="07:00 AM - 08:00 AM">07:00 AM – 08:00 AM (Morning Surge)</option>
+                            <option value="08:00 AM - 09:00 AM">08:00 AM – 09:00 AM (Mid Morning)</option>
+                            <option value="05:00 PM - 06:00 PM">05:00 PM – 06:00 PM (Evening Prime)</option>
+                            <option value="06:00 PM - 07:00 PM">06:00 PM – 07:00 PM (Heavy Peak)</option>
+                            <option value="07:00 PM - 08:00 PM">07:00 PM – 08:00 PM (Syndicate Hour)</option>
                         </select>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-black py-4 uppercase tracking-widest text-sm transition shadow-lg shadow-red-950/50">
-                    Authenticate & Generate Pass
+                <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-black py-4 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                    Authenticate & Generate Pass &rarr;
                 </button>
             </form>
         </div>
 
-        <!-- Redesigned Professional Digital Pass Ticket -->
-        <div id="pass-ticket" class="hidden bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden relative">
+        <!-- Redesigned Professional Digital 3D Holographic Pass Ticket -->
+        <div id="pass-ticket" class="hidden bg-zinc-950 border-2 border-red-600/60 shadow-2xl rounded overflow-hidden relative hologram-shimmer font-mono-tech">
             <!-- Top Brand Bar -->
-            <div class="bg-brand text-white px-6 py-3 flex justify-between items-center">
-                <span class="text-xs font-black uppercase tracking-widest italic">OG Fitness — Executive Pass</span>
-                <span class="text-[10px] bg-black/30 px-2 py-0.5 uppercase tracking-wider font-bold">visitors</span>
+            <div class="bg-brand text-white px-6 py-3.5 flex justify-between items-center shadow-lg">
+                <span class="text-xs font-heading font-black uppercase tracking-widest italic">OG FITNESS ARENA — EXECUTIVE PASS</span>
+                <span class="text-[10px] bg-black/40 px-2 py-0.5 uppercase tracking-wider font-bold">DEVICE LOCKED</span>
             </div>
 
             <div class="p-6 md:p-8 space-y-6">
                 <!-- Holder Info -->
                 <div class="flex justify-between items-start border-b border-zinc-900 pb-5">
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Pass Holder</p>
-                        <h3 id="ticketName" class="text-xl md:text-2xl font-black uppercase italic text-white">---</h3>
-                        <p id="ticketEmail" class="text-xs text-brand mt-0.5">---</p>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Authenticated Holder</p>
+                        <h3 id="ticketName" class="text-2xl font-heading font-black uppercase italic text-white text-glow-red">---</h3>
+                        <p id="ticketEmail" class="text-xs text-brand mt-0.5 font-bold">---</p>
                     </div>
                     <div class="text-right">
-                        <span class="inline-block bg-emerald-950/60 border border-emerald-600/50 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
-                            ● Active Pass
+                        <span class="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-600/50 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>ACTIVE PASS</span>
                         </span>
                     </div>
                 </div>
 
                 <!-- Schedule Grid -->
-                <div class="grid grid-cols-2 gap-4 bg-black/40 border border-zinc-900 p-4">
+                <div class="grid grid-cols-2 gap-4 bg-black/60 border border-zinc-900 p-4">
                     <div>
                         <p class="text-[10px] uppercase tracking-widest text-zinc-500">Scheduled Date</p>
-                        <p id="ticketDate" class="text-xs font-bold text-white mt-1">---</p>
+                        <p id="ticketDate" class="text-sm font-bold text-white mt-1">---</p>
                     </div>
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-zinc-500">Time Window</p>
-                        <p id="ticketSlot" class="text-xs font-bold text-brand mt-1">---</p>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500">Reserved Window</p>
+                        <p id="ticketSlot" class="text-sm font-bold text-brand mt-1">---</p>
                     </div>
                 </div>
 
                 <!-- Policy Note -->
-                <div class="text-[11px] text-zinc-400 leading-relaxed border-l-2 border-brand pl-3">
-                    <strong class="text-white">Desk Verification:</strong> This pass is locked to your device and profile. Present this live screen at the reception desk for a 1-hour session.
+                <div class="text-xs text-zinc-400 leading-relaxed border-l-2 border-brand pl-3 bg-zinc-900/40 py-2 pr-2">
+                    <strong class="text-white">Front Desk Verification:</strong> Present this active device screen to the front desk at Durgapuram, BRTS Road, Vijayawada for entrance authorization.
                 </div>
 
                 <!-- Barcode Graphic Accent -->
                 <div class="pt-2 flex flex-col items-center justify-center space-y-3">
-                    <div class="w-full tracking-widest text-zinc-700 font-mono text-center text-xl select-none">
-                        ||| |!|||| || !||| ||||| |!||
+                    <div class="w-full tracking-widest text-zinc-500 font-mono text-center text-2xl select-none">
+                        ||| |!|||| || !||| ||||| |!|| |||
                     </div>
-                    <a href="index.html" class="inline-block bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-2.5 px-6 uppercase tracking-wider text-xs transition">Return to Home</a>
+                    <p class="text-[9px] text-zinc-500 uppercase tracking-widest">ENCRYPTED DIGITAL SESSION TOKEN</p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <button onclick="window.print()" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-2 px-5 text-xs uppercase tracking-wider transition">
+                            <i class="fa-solid fa-print mr-1"></i> Print / Save
+                        </button>
+                        <a href="index.html" class="bg-brand hover:bg-red-700 text-white font-bold py-2 px-5 text-xs uppercase tracking-wider transition">
+                            Return to Home
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,8 +165,9 @@
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader & Pass Generator Script -->
+    <!-- Scripts -->
     <script src="components.js"></script>
+    <script src="app.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const today = new Date().toISOString().split('T')[0];
@@ -137,8 +179,10 @@
 
             const savedPass = localStorage.getItem('og_fitness_secure_pass');
             if (savedPass) {
-                const passData = JSON.parse(savedPass);
-                showTicket(passData.name, passData.email, passData.date, passData.slot, true);
+                try {
+                    const passData = JSON.parse(savedPass);
+                    showTicket(passData.name, passData.email, passData.date, passData.slot);
+                } catch(e) {}
             }
         });
 
@@ -150,25 +194,18 @@
             const date = document.getElementById('passDate').value;
             const slot = document.getElementById('passSlot').value;
 
-            const existingPass = localStorage.getItem('og_fitness_secure_pass');
-            if (existingPass) {
-                showTicket(name, email, date, slot, true);
-                return;
-            }
-
             const passData = { name: name, phone: phone, email: email, date: date, slot: slot, timestamp: new Date().getTime() };
             localStorage.setItem('og_fitness_secure_pass', JSON.stringify(passData));
-            showTicket(name, email, date, slot, false);
+            showTicket(name, email, date, slot);
+
+            if (window.OGSound) {
+                window.OGSound.playClank();
+            }
         }
 
-        function showTicket(name, email, date, slot, isDuplicate) {
+        function showTicket(name, email, date, slot) {
             const formContainer = document.getElementById('form-container');
             if (formContainer) formContainer.style.display = 'none';
-            
-            if (isDuplicate) {
-                const warning = document.getElementById('duplicate-warning');
-                if (warning) warning.classList.remove('hidden');
-            }
 
             const ticketName = document.getElementById('ticketName');
             const ticketEmail = document.getElementById('ticketEmail');

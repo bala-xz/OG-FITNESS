@@ -3,178 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OG Fitness | They Call Him OG</title>
+    <title>OG Fitness | They Call Him OG - Elite 3D Training Arena</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626',
+                        darkBg: '#070709',
+                        darkCard: 'rgba(15, 15, 18, 0.75)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Three.js (r128) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Sleek VIP Offer Banner -->
-    <section class="bg-zinc-950 border-b border-zinc-900 text-white py-3.5 mt-20 md:mt-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 md:px-6">
-            
-            <!-- Mobile-Only View (< 768px) -->
-            <div class="md:hidden flex items-center justify-between gap-3">
-                <span class="bg-brand text-white text-[9px] font-black uppercase tracking-widest px-1.5 py-2 shrink-0 [writing-mode:vertical-lr] rotate-180 text-center leading-none">
-                    VIP Offer
-                </span>
-                <div class="flex-1 min-w-0 pr-1">
-                    <h4 class="text-xs font-black uppercase italic tracking-wide text-white leading-tight">
-                        Annual Dual Advantage
-                    </h4>
-                    <p class="text-[11px] text-zinc-400 font-medium leading-snug mt-0.5">
-                        Pay for 6 months and get 6 months free with full arena access.
-                    </p>
-                </div>
-                <a href="membership.html" class="shrink-0 bg-brand hover:bg-red-700 text-white font-black px-3.5 py-2 uppercase tracking-wider text-[11px] transition shadow-[0_0_15px_rgba(220,38,38,0.4)] whitespace-nowrap">
-                    Claim Offer
-                </a>
-            </div>
-
-            <!-- Desktop-Only View (>= 768px) -->
-            <div class="hidden md:flex items-center justify-between gap-4">
-                <div class="flex items-center space-x-4 text-left">
-                    <span class="bg-brand text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 shrink-0">
-                        Limited Offer
-                    </span>
-                    <div>
-                        <h3 class="text-sm font-black uppercase italic tracking-wide text-white">
-                            Pay for 6 months and get 6 months free with full arena access.
-                        </h3>
-                        <p class="text-[11px] text-zinc-400">
-                            Secure full 12-month access to all training facilities for the price of 6.
-                        </p>
-                    </div>
-                </div>
-                <a href="membership.html" class="bg-brand hover:bg-red-700 text-white font-black px-5 py-2 uppercase tracking-widest text-xs transition shadow-[0_0_20px_rgba(220,38,38,0.4)] whitespace-nowrap">
-                    Claim Offer
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Cinematic Video Hero Section -->
-    <section class="relative h-[90vh] w-full flex items-center justify-center overflow-hidden bg-black">
-        <!-- Background Video (Drop your MP4 file in your folder and name it 'gym-background.mp4') -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 z-0">
+    <!-- ======================================================== -->
+    <!-- CINEMATIC 3D WEBGL HERO SECTION                          -->
+    <!-- ======================================================== -->
+    <section class="relative min-h-[95vh] pt-28 pb-16 w-full flex items-center justify-center overflow-hidden bg-black">
+        <!-- Background Ambient Video Loop -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-25 z-0 pointer-events-none filter contrast-125 brightness-75">
             <source src="video.mp4" type="video/mp4">
         </video>
 
-        <!-- Static Fallback Image (Shows instantly while video loads or if video is missing) -->
-        <div class="absolute inset-0 z-[-1] bg-cover bg-center grayscale contrast-125 opacity-25" style="background-image: url('og-equipment.webp')"></div>
+        <!-- Static Fallback Image Overlay -->
+        <div class="absolute inset-0 z-[-1] bg-cover bg-center grayscale opacity-15" style="background-image: url('og-equipment.webp');"></div>
 
-        <!-- Dark Cinematic Gradients -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/70 z-10"></div>
-        
-        <div class="relative z-20 max-w-4xl mx-auto text-center px-6 space-y-6">
-            <span class="inline-block py-1.5 px-4 bg-red-600/10 border-l-4 border-brand text-brand text-xs font-black uppercase tracking-[0.3em]">
-                TRANSFORM YOUR BODY.
-            </span>
+        <!-- Radial Gradients & Vignettes -->
+        <div class="absolute inset-0 bg-radial-vignette z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-10 pointer-events-none"></div>
+
+        <!-- Content & 3D Stage Container -->
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div class="flex justify-center">
-                <img src="og-logo.png" alt="They Call Him OG" class="max-h-24 md:max-h-32 w-auto drop-shadow-[0_10px_30px_rgba(220,38,38,0.6)]">
-            </div>
-            
-            <h1 class="text-3xl md:text-6xl font-black uppercase tracking-tight text-white italic leading-none">
-                Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500">Strongest Self</span>
-            </h1>
+            <!-- Hero Left: High-Energy Athletic Copy -->
+            <div class="lg:col-span-6 space-y-6 text-left pt-6 lg:pt-0">
+                
+                <!-- Live Arena Status Pill -->
+                <div class="inline-flex items-center gap-3 bg-zinc-950/90 border border-zinc-800 px-3.5 py-1.5 rounded-full text-xs font-mono-tech shadow-lg">
+                    <div class="live-arena-status"></div>
+                </div>
 
-            <p class="text-xs md:text-sm text-zinc-400 max-w-xl mx-auto font-medium tracking-wide uppercase leading-relaxed">
-                Explore our state-of-the-art gym layout, custom architectural lighting, and elite machinery arsenal.
-            </p>
+                <div class="space-y-2">
+                    <div class="inline-block">
+                        <span class="text-brand font-mono-tech font-black text-xs uppercase tracking-[0.35em] border-l-2 border-brand pl-3">
+                            TRANSFORM YOUR BODY • THEY CALL HIM OG
+                        </span>
+                    </div>
+                    
+                    <!-- Massive Kinetic Heading -->
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-black uppercase tracking-tight text-white italic leading-[0.92]">
+                        BUILD YOUR <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand via-red-500 to-white text-glow-red">
+                            STRONGEST
+                        </span> <br>
+                        SELF.
+                    </h1>
+                </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="freepass.html" class="w-full sm:w-auto bg-brand hover:bg-red-700 text-white font-black px-8 py-4 text-xs uppercase tracking-widest transition shadow-[0_0_25px_rgba(220,38,38,0.5)]">
-                    Trial Pass
-                </a>
-                <a href="training.html" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 text-white font-black px-8 py-4 text-xs uppercase tracking-widest transition">
-                    Explore Training
-                </a>
+                <p class="text-xs sm:text-sm text-zinc-400 max-w-lg font-medium tracking-wide uppercase leading-relaxed font-mono-tech">
+                    Vijayawada’s premier iron arena engineered with architectural spatial geometry, custom acoustic lighting, and heavy-duty mechanical firepower.
+                </p>
+
+                <!-- Interactive CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                    <a href="freepass.html" class="inline-flex items-center justify-center gap-3 bg-brand hover:bg-red-700 text-white font-black px-8 py-4 text-xs uppercase tracking-widest transition duration-300 shadow-brand-glow hover:shadow-brand-heavy group">
+                        <span>Claim Trial Pass</span>
+                        <i class="fa-solid fa-bolt text-xs transform group-hover:scale-125 transition"></i>
+                    </a>
+                    <a href="#zone-explorer" class="inline-flex items-center justify-center gap-2 bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700/80 text-white font-black px-7 py-4 text-xs uppercase tracking-widest transition hover:border-brand">
+                        <span>Explore Arena</span>
+                        <i class="fa-solid fa-arrow-down text-xs text-brand"></i>
+                    </a>
+                </div>
+
+                <!-- Live Quick Metrics Mini Bar -->
+                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-zinc-800/80 max-w-md">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-mono-tech">Racks & Plates</p>
+                        <p class="text-xl font-heading font-black text-white italic">100+ Tons</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-mono-tech">Arena Scale</p>
+                        <p class="text-xl font-heading font-black text-brand italic">Multi-Floor</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-mono-tech">Coaching Crew</p>
+                        <p class="text-xl font-heading font-black text-emerald-400 italic">Certified</p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Hero Right: Interactive Real-Time 3D WebGL Canvas -->
+            <div class="lg:col-span-6 relative flex flex-col items-center justify-center">
+                
+                <!-- 3D Model Switcher Pill Bar -->
+                <div class="mb-3 z-30 flex items-center gap-2 bg-black/80 backdrop-blur-md p-1.5 border border-zinc-800 rounded-full shadow-2xl">
+                    <span class="text-[9px] uppercase tracking-widest font-mono-tech text-zinc-500 px-2 hidden sm:inline">3D MODEL:</span>
+                    <button id="btn-3d-dumbbell" onclick="switch3DModel('dumbbell')" class="model-btn bg-brand text-white border border-brand text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full transition">
+                        Heavy Dumbbell
+                    </button>
+                    <button id="btn-3d-kettlebell" onclick="switch3DModel('kettlebell')" class="model-btn bg-zinc-900 text-zinc-400 border border-zinc-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full hover:text-white transition">
+                        Kettlebell 32KG
+                    </button>
+                    <button id="btn-3d-plate" onclick="switch3DModel('plate')" class="model-btn bg-zinc-900 text-zinc-400 border border-zinc-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full hover:text-white transition">
+                        Bumper Plate
+                    </button>
+                </div>
+
+                <!-- 3D Canvas Box -->
+                <div class="relative w-full h-[400px] sm:h-[480px] md:h-[540px] flex items-center justify-center">
+                    <canvas id="webgl-hero-canvas" class="w-full h-full cursor-grab active:cursor-grabbing relative z-20"></canvas>
+
+                    <!-- Tech Circular Hud Frame Backdrop -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <div class="w-72 sm:w-96 h-72 sm:h-96 rounded-full border border-dashed border-red-600/20 animate-spin" style="animation-duration: 40s;"></div>
+                        <div class="w-56 sm:w-72 h-56 sm:h-72 rounded-full border border-zinc-800/60"></div>
+                        <div class="absolute -top-4 text-[9px] font-mono-tech text-red-500/60 uppercase tracking-widest">
+                            [ DRAG TO ROTATE 360° • CLICK TO PULSE ]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interaction Hint -->
+                <p class="text-[10px] text-zinc-500 font-mono-tech uppercase tracking-widest mt-1 text-center">
+                    <i class="fa-solid fa-hand-pointer text-brand mr-1"></i> Interactive WebGL Render • Real-time Physics & Lighting
+                </p>
+            </div>
+
         </div>
     </section>
 
-    <!-- Live Floor Metrics & Activity Bar -->
-    <section class="bg-zinc-950 border-y border-zinc-900 py-6 relative z-20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="border-r border-zinc-900 last:border-none">
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Operating Hours</p>
-                <p class="text-sm md:text-base font-black uppercase tracking-wider text-emerald-400">Mon - Sat (5AM - 10PM)</p>
+    <!-- ======================================================== -->
+    <!-- SLEEK VIP 6+6 OFFER BANNER WITH LIVE COUNTDOWN           -->
+    <!-- ======================================================== -->
+    <section class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-y border-red-600/30 text-white py-6 relative overflow-hidden">
+        <div class="laser-scanline"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            
+            <!-- Left: Limited Offer Tagline -->
+            <div class="md:col-span-4 flex items-center space-x-4">
+                <span class="bg-brand text-white text-[10px] font-black uppercase tracking-widest px-3 py-2 shrink-0 shadow-brand-glow">
+                    LIMITED PRIVILEGE
+                </span>
+                <div>
+                    <h3 class="text-base font-black uppercase italic tracking-wide text-white">
+                        Annual Dual Advantage
+                    </h3>
+                    <p class="text-xs text-zinc-400 font-mono-tech">
+                        Pay for 6 months & get 6 months free with full arena access.
+                    </p>
+                </div>
             </div>
-            <div class="border-r border-zinc-900 last:border-none">
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Coaching Support</p>
-                <p class="text-sm md:text-base font-black uppercase tracking-wider text-white">Expert Trainers</p>
+
+            <!-- Middle: Live Countdown Clock -->
+            <div class="md:col-span-5 flex items-center justify-center gap-3 font-mono-tech">
+                <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mr-2">OFFER CLOSES IN:</span>
+                <div class="bg-black border border-zinc-800 px-3 py-1.5 text-center min-w-[50px]">
+                    <span id="countdown-days" class="text-base font-black text-brand">04</span>
+                    <span class="block text-[8px] text-zinc-500 uppercase">Days</span>
+                </div>
+                <span class="text-zinc-600 font-bold">:</span>
+                <div class="bg-black border border-zinc-800 px-3 py-1.5 text-center min-w-[50px]">
+                    <span id="countdown-hours" class="text-base font-black text-brand">18</span>
+                    <span class="block text-[8px] text-zinc-500 uppercase">Hours</span>
+                </div>
+                <span class="text-zinc-600 font-bold">:</span>
+                <div class="bg-black border border-zinc-800 px-3 py-1.5 text-center min-w-[50px]">
+                    <span id="countdown-mins" class="text-base font-black text-white">42</span>
+                    <span class="block text-[8px] text-zinc-500 uppercase">Mins</span>
+                </div>
+                <span class="text-zinc-600 font-bold">:</span>
+                <div class="bg-black border border-zinc-800 px-3 py-1.5 text-center min-w-[50px]">
+                    <span id="countdown-secs" class="text-base font-black text-emerald-400">09</span>
+                    <span class="block text-[8px] text-zinc-500 uppercase">Secs</span>
+                </div>
             </div>
-            <div class="border-r border-zinc-900 last:border-none">
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Training Zones</p>
-                <p class="text-sm md:text-base font-black uppercase tracking-wider text-white">Strength & Cardio</p>
+
+            <!-- Right: Action CTA -->
+            <div class="md:col-span-3 flex justify-start md:justify-end">
+                <a href="membership.html" class="w-full sm:w-auto text-center bg-brand hover:bg-red-700 text-white font-black px-6 py-3 uppercase tracking-widest text-xs transition shadow-brand-glow whitespace-nowrap">
+                    Claim ₹15,000 Pass
+                </a>
             </div>
-            <div>
-                <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Your Health</p>
-                <p class="text-sm md:text-base font-black uppercase tracking-wider text-emerald-400">Our Highest Standard</p>
-            </div>
+
         </div>
     </section>
 
-    <!-- High-Impact Feature Grid -->
-    <section class="py-20 bg-black border-t border-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- ======================================================== -->
+    <!-- INTERACTIVE 3D TRAINING ZONE & ARSENAL EXPLORER          -->
+    <!-- ======================================================== -->
+    <section id="zone-explorer" class="py-24 bg-black border-t border-zinc-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest border-b border-brand pb-1">
+                    FACILITY GEOMETRY
+                </span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-3 italic text-white">
+                    Explore The OG Arena Zones
+                </h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech mt-2 uppercase tracking-wide">
+                    Select a battle zone below to inspect our specialized equipment tiers and biomechanics.
+                </p>
+            </div>
+
+            <!-- Zone Selector Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button data-zone="freeweights" class="zone-tab-btn bg-brand text-white border border-brand px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-solid fa-dumbbell mr-2"></i> Free Weights & Racks
+                </button>
+                <button data-zone="combat" class="zone-tab-btn bg-zinc-950 text-zinc-400 border border-zinc-800 px-5 py-2.5 text-xs font-bold uppercase tracking-wider hover:text-white transition">
+                    <i class="fa-solid fa-fire mr-2"></i> Combat & Strike Turf
+                </button>
+                <button data-zone="machines" class="zone-tab-btn bg-zinc-950 text-zinc-400 border border-zinc-800 px-5 py-2.5 text-xs font-bold uppercase tracking-wider hover:text-white transition">
+                    <i class="fa-solid fa-gears mr-2"></i> Iso-Lateral Machinery
+                </button>
+                <button data-zone="cardio" class="zone-tab-btn bg-zinc-950 text-zinc-400 border border-zinc-800 px-5 py-2.5 text-xs font-bold uppercase tracking-wider hover:text-white transition">
+                    <i class="fa-solid fa-bolt mr-2"></i> Turbo Cardio Suite
+                </button>
+            </div>
+
+            <!-- Interactive Zone Display Card -->
+            <div class="bg-zinc-950 border border-zinc-800 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl relative">
+                <div class="absolute -top-3 left-8 bg-zinc-900 border border-zinc-800 px-3 py-1 text-[10px] font-mono-tech text-brand uppercase tracking-widest">
+                    ACTIVE SECTOR
+                </div>
+
+                <!-- Left: Zone Details -->
+                <div class="lg:col-span-6 space-y-5">
+                    <div class="inline-block bg-red-600/10 border border-red-600/30 text-brand text-[10px] font-mono-tech font-bold uppercase tracking-widest px-2.5 py-1" id="zone-tag">
+                        RAW STRENGTH
+                    </div>
+                    
+                    <h3 id="zone-title" class="text-2xl sm:text-3xl font-heading font-black uppercase italic text-white">
+                        Olympic Barbell & Heavy Iron Arena
+                    </h3>
+                    
+                    <h4 id="zone-subtitle" class="text-sm font-bold text-zinc-400 uppercase tracking-wide">
+                        Uncompromising Free Weights Up To 50KG
+                    </h4>
+
+                    <p id="zone-desc" class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-mono-tech">
+                        Engineered for pure mechanical power. Includes calibrated Olympic steel bars, deadlift drop platforms with sound-absorbing shock rubber, and commercial dumbbell tiers spanning from 2.5kg to 50kg.
+                    </p>
+
+                    <!-- Zone Specifications Grid -->
+                    <div id="zone-stats" class="grid grid-cols-3 gap-3 pt-4">
+                        <div class="bg-zinc-900/80 border border-zinc-800 p-3.5">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-0.5">Dumbbells</p>
+                            <p class="text-sm font-black text-white italic">2.5kg – 50kg</p>
+                        </div>
+                        <div class="bg-zinc-900/80 border border-zinc-800 p-3.5">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-0.5">Olympic Racks</p>
+                            <p class="text-sm font-black text-white italic">6 Power Cages</p>
+                        </div>
+                        <div class="bg-zinc-900/80 border border-zinc-800 p-3.5">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-0.5">Platform</p>
+                            <p class="text-sm font-black text-white italic">Impact Mats</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex items-center space-x-4">
+                        <a href="freepass.html" class="bg-brand hover:bg-red-700 text-white font-black px-6 py-3 uppercase tracking-wider text-xs transition">
+                            Book Zone Tour Pass
+                        </a>
+                        <a href="training.html" class="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-wider underline underline-offset-4">
+                            View Workout Programs &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Zone Live Imagery Preview -->
+                <div class="lg:col-span-6 relative overflow-hidden border border-zinc-800 rounded group h-80 sm:h-96">
+                    <img id="zone-img" src="og-equipment.webp" alt="OG Fitness Zone" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono-tech">
+                        <span class="bg-black/80 px-2 py-1 text-white border border-zinc-800">● LIVE FACILITY CAPTURE</span>
+                        <span class="text-zinc-400">DURGAPURAM, VIJAYAWADA</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- INTERACTIVE 1RM STRENGTH & CALORIE CALCULATOR            -->
+    <!-- ======================================================== -->
+    <section class="py-20 bg-zinc-950 border-t border-zinc-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left: Interactive Sliders Form -->
+                <div class="lg:col-span-7 bg-black border border-zinc-800 p-6 sm:p-10 shadow-2xl relative">
+                    <div class="absolute -top-3 left-6 bg-brand text-white font-black px-3 py-0.5 text-[10px] uppercase tracking-widest">
+                        SYNDICATE ALGORITHM
+                    </div>
+
+                    <div class="mb-8">
+                        <span class="text-brand text-xs font-mono-tech font-bold uppercase tracking-widest">Biomechanical Benchmark</span>
+                        <h2 class="text-2xl sm:text-4xl font-heading font-black uppercase italic text-white mt-1">
+                            1-Rep Max & Strength Calculator
+                        </h2>
+                        <p class="text-zinc-400 text-xs font-mono-tech mt-1">
+                            Dial in your working load to calculate your true peak power rating and recommended split.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Exercise Selection -->
+                        <div>
+                            <label class="block text-xs uppercase font-mono-tech font-bold text-zinc-400 mb-2">Target Lift Discipline</label>
+                            <select id="calc-exercise" class="w-full bg-zinc-900 border border-zinc-800 text-white px-4 py-3 text-xs uppercase tracking-wider font-bold focus:border-brand focus:outline-none">
+                                <option value="bench">Barbell Bench Press</option>
+                                <option value="deadlift">Conventional Deadlift</option>
+                                <option value="squat">Olympic Back Squat</option>
+                                <option value="ohp">Overhead Military Press</option>
+                            </select>
+                        </div>
+
+                        <!-- Weight Slider -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-mono-tech mb-2">
+                                <span class="uppercase text-zinc-400 font-bold">Lift Load</span>
+                                <span id="calc-weight-val" class="font-black text-brand text-sm">80 KG</span>
+                            </div>
+                            <input type="range" id="calc-weight" min="20" max="250" value="80" step="2.5">
+                            <div class="flex justify-between text-[10px] text-zinc-600 font-mono-tech mt-1">
+                                <span>20 KG</span>
+                                <span>135 KG</span>
+                                <span>250 KG</span>
+                            </div>
+                        </div>
+
+                        <!-- Repetitions Slider -->
+                        <div>
+                            <div class="flex justify-between items-center text-xs font-mono-tech mb-2">
+                                <span class="uppercase text-zinc-400 font-bold">Reps To Failure</span>
+                                <span id="calc-reps-val" class="font-black text-brand text-sm">8 REPS</span>
+                            </div>
+                            <input type="range" id="calc-reps" min="1" max="15" value="8" step="1">
+                            <div class="flex justify-between text-[10px] text-zinc-600 font-mono-tech mt-1">
+                                <span>1 Rep (Pure Max)</span>
+                                <span>8 Reps (Hypertrophy)</span>
+                                <span>15 Reps (Endurance)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Real-time Live Calculation Results Card -->
+                <div class="lg:col-span-5 bg-zinc-900/60 border-2 border-red-600/40 p-8 relative shadow-2xl">
+                    <div class="absolute -top-3 right-6 bg-emerald-950 border border-emerald-600/50 text-emerald-400 font-bold text-[10px] px-3 py-1 uppercase tracking-widest font-mono-tech">
+                        ● LIVE OUTPUT
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[10px] uppercase font-mono-tech tracking-widest text-zinc-400">Estimated 1-Rep Maximum</p>
+                            <h3 id="calc-result-1rm" class="text-4xl sm:text-5xl font-heading font-black text-white italic text-glow-red mt-1">
+                                99 KG
+                            </h3>
+                        </div>
+
+                        <!-- Classification Tier -->
+                        <div class="bg-black/60 border border-zinc-800 p-4 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] uppercase font-mono-tech text-zinc-500">Tier Classification:</span>
+                                <span id="calc-result-tier" class="text-sm font-black uppercase italic text-emerald-400">
+                                    💪 ADVANCED OPERATOR
+                                </span>
+                            </div>
+                            <!-- Progress Bar -->
+                            <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                <div id="calc-tier-progress" class="bg-gradient-to-r from-red-600 to-brand h-full transition-all duration-300" style="width: 55%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Calorie & Split Info -->
+                        <div class="grid grid-cols-2 gap-3 font-mono-tech">
+                            <div class="bg-black/50 border border-zinc-800 p-3">
+                                <span class="text-[9px] uppercase tracking-widest text-zinc-500 block">Est. Calorie Burn</span>
+                                <span id="calc-result-burn" class="text-sm font-black text-white">~468 kcal / 45m</span>
+                            </div>
+                            <div class="bg-black/50 border border-zinc-800 p-3">
+                                <span class="text-[9px] uppercase tracking-widest text-zinc-500 block">Rest Period</span>
+                                <span class="text-sm font-black text-emerald-400">120 - 180s</span>
+                            </div>
+                        </div>
+
+                        <!-- Recommended Routine Split -->
+                        <div class="border-t border-zinc-800 pt-4">
+                            <p class="text-[10px] uppercase font-mono-tech tracking-widest text-zinc-400 mb-1">Recommended OG Split:</p>
+                            <p id="calc-result-split" class="text-xs font-bold text-white uppercase italic">
+                                OG Mass Builder & Strength Conditioning (4-Day Push/Pull/Legs)
+                            </p>
+                        </div>
+
+                        <a href="freepass.html" class="block text-center bg-brand hover:bg-red-700 text-white font-black py-3.5 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                            Test Your PR At OG Arena
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- INTERACTIVE 3D VIRTUAL VIP PASS GENERATOR                -->
+    <!-- ======================================================== -->
+    <section class="py-24 bg-black border-t border-zinc-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand text-xs font-black uppercase tracking-widest">Uncompromising Standards</span>
-                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight mt-2 italic text-white">Designed For Elite Performance</h2>
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest">
+                    DIGITAL AUTHENTICATION
+                </span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-2 mb-3 italic text-white">
+                    Claim Your 3D Virtual VIP Pass
+                </h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech uppercase tracking-wider">
+                    Type your name below to personalize your holographic metallic pass with device locking.
+                </p>
             </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-5xl mx-auto">
+                
+                <!-- Pass Controls & Personalization Input -->
+                <div class="lg:col-span-5 bg-zinc-950 border border-zinc-800 p-6 sm:p-8 space-y-5">
+                    <div>
+                        <label class="block text-xs font-mono-tech font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                            Enter Athlete Full Name
+                        </label>
+                        <input type="text" id="preview-pass-name" placeholder="E.g. ARJUN KUMAR" class="w-full bg-black border border-zinc-800 px-4 py-3 text-white text-sm uppercase tracking-wider font-bold focus:border-brand focus:outline-none transition">
+                    </div>
+
+                    <div class="space-y-2 text-xs text-zinc-400 font-mono-tech">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand"></i>
+                            <span>Includes 1-Hour Full Floor Session</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand"></i>
+                            <span>Free Biomechanical Equipment Orientation</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand"></i>
+                            <span>Touch-Free Sanitization Stations</span>
+                        </div>
+                    </div>
+
+                    <a href="freepass.html" class="block text-center bg-brand hover:bg-red-700 text-white font-black py-4 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                        Authenticate & Lock Slot &rarr;
+                    </a>
+                </div>
+
+                <!-- 3D Interactive Holographic Titanium Card -->
+                <div class="lg:col-span-7 flex justify-center perspective-[1000px]">
+                    <div id="holo-pass-card" class="w-full max-w-md h-64 bg-zinc-950 border-2 border-red-600/50 rounded-xl p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden transition-transform duration-200 hologram-shimmer cursor-pointer select-none">
+                        
+                        <!-- Top Card Header -->
+                        <div class="flex items-center justify-between relative z-10">
+                            <div class="flex items-center space-x-2">
+                                <img src="og-logo.png" alt="OG" class="h-8 w-auto">
+                                <span class="text-xs font-heading font-black uppercase tracking-widest text-white italic">OG FITNESS ARENA</span>
+                            </div>
+                            <span class="bg-red-600/20 border border-brand text-brand text-[9px] font-mono-tech font-black px-2 py-0.5 uppercase tracking-wider">
+                                VIP ACCESS
+                            </span>
+                        </div>
+
+                        <!-- Center Member Details -->
+                        <div class="relative z-10 space-y-1">
+                            <p class="text-[9px] font-mono-tech uppercase tracking-widest text-zinc-400">AUTHENTICATED ATHLETE</p>
+                            <h3 id="holo-card-name" class="text-2xl font-heading font-black uppercase italic text-white text-glow-red truncate">
+                                YOUR NAME HERE
+                            </h3>
+                            <p id="holo-card-id" class="text-[11px] font-mono-tech text-brand">OG-2026-9481</p>
+                        </div>
+
+                        <!-- Bottom Card Barcode & Chip -->
+                        <div class="flex items-end justify-between relative z-10 pt-2 border-t border-zinc-800/80">
+                            <div>
+                                <span class="text-[9px] font-mono-tech uppercase text-zinc-500 block">BASE VALIDITY</span>
+                                <span class="text-xs font-bold text-emerald-400 font-mono-tech">VIJAYAWADA BRTS</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-mono text-zinc-400 text-base tracking-widest leading-none">
+                                    |||| |!|| ||| !|||
+                                </div>
+                                <span class="text-[8px] font-mono-tech text-zinc-500">DIGITAL SECURITY CHIP</span>
+                            </div>
+                        </div>
+
+                        <!-- Holographic Metallic Glint Accent -->
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-brand/20 rounded-full blur-2xl pointer-events-none"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- UNCOMPROMISING STANDARDS: 3D TILT FEATURE GRID           -->
+    <!-- ======================================================== -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest">
+                    THE ARCHITECTURE
+                </span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-2 italic text-white">
+                    Engineered For Dominance
+                </h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech uppercase tracking-wider mt-2">
+                    Every square meter calibrated for maximum biological output and focus.
+                </p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Architectural Layout</h3>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Engineered with custom spatial geometry, specialized lighting grids, and optimized training zones.</p>
+                
+                <!-- Feature 1 -->
+                <div class="tilt-card bg-black border border-zinc-800 p-8 group">
+                    <div class="text-4xl text-brand mb-5 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">01 / GEOMETRY</span>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-3 text-white italic">
+                        Architectural Layout
+                    </h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed">
+                        Engineered with custom spatial geometry, specialized acoustic lighting grids, and optimized training flow that eliminates bottlenecks.
+                    </p>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-dumbbell"></i></div>
-                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Machinery Arsenal</h3>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Equipped with premium resistance machines, heavy-duty racks, and specialized functional fitness tools.</p>
+
+                <!-- Feature 2 -->
+                <div class="tilt-card bg-black border border-zinc-800 p-8 group">
+                    <div class="text-4xl text-brand mb-5 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">02 / CALIBRATION</span>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-3 text-white italic">
+                        Machinery Arsenal
+                    </h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed">
+                        Equipped with premium resistance machines, heavy-duty Olympic cages, and specialized functional combat equipment.
+                    </p>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-900 p-8 hover:border-brand transition-all duration-300 group hover:-translate-y-1">
-                    <div class="text-3xl text-brand mb-4 group-hover:scale-110 transition duration-300"><i class="fa-solid fa-eye"></i></div>
-                    <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white">Guided Floor Tour</h3>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Book a secure morning slot to walk through the facility and inspect the training ecosystem.</p>
+
+                <!-- Feature 3 -->
+                <div class="tilt-card bg-black border border-zinc-800 p-8 group">
+                    <div class="text-4xl text-brand mb-5 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">03 / MASTERY</span>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-3 text-white italic">
+                        Syndicate Coaching
+                    </h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed">
+                        Learn biomechanics, injury mitigation, and peak progressive overload protocols from certified mentors.
+                    </p>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- Visual Showcase Section -->
-    <section class="py-20 bg-zinc-950 border-t border-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- ======================================================== -->
+    <!-- INSIDE THE ARENA: VISUAL SHOWCASE                        -->
+    <!-- ======================================================== -->
+    <section class="py-24 bg-black border-t border-zinc-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand text-xs font-black uppercase tracking-widest">Inside The Arena</span>
-                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight mt-2 mb-4 italic text-white">Built For Legends</h2>
-                <p class="text-zinc-400 text-xs uppercase tracking-wider">Take a look at our custom environment designed for absolute intensity.</p>
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest">
+                    VISUAL DOSSIER
+                </span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-2 mb-3 italic text-white">
+                    Inside The Arena
+                </h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech uppercase tracking-wider">
+                    Experience the custom atmosphere built for absolute physical intensity.
+                </p>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="overflow-hidden border border-zinc-900 relative group">
-                    <img src="og-equipment.webp" alt="OG Fitness Floor" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                    <span class="absolute bottom-6 left-6 text-sm font-black uppercase italic tracking-wider text-white">Main Training Floor & Equipment</span>
+                <!-- Image Card 1 -->
+                <div class="tilt-card overflow-hidden border border-zinc-800 relative group h-80 sm:h-96">
+                    <img src="og-equipment.webp" alt="OG Fitness Floor" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                        <div>
+                            <span class="text-[10px] font-mono-tech text-brand uppercase tracking-widest block">SECTOR ALPHA</span>
+                            <span class="text-lg font-heading font-black uppercase italic tracking-wider text-white">
+                                Main Training Floor & Machinery
+                            </span>
+                        </div>
+                        <span class="bg-black/80 px-2 py-1 text-[10px] font-mono-tech text-zinc-400 border border-zinc-800">01</span>
+                    </div>
                 </div>
-                <div class="overflow-hidden border border-zinc-900 relative group">
-                    <img src="og-artwork.webp" alt="OG Fitness Murals" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                    <span class="absolute bottom-6 left-6 text-sm font-black uppercase italic tracking-wider text-white">Custom Artwork & Combat Zone</span>
+
+                <!-- Image Card 2 -->
+                <div class="tilt-card overflow-hidden border border-zinc-800 relative group h-80 sm:h-96">
+                    <img src="og-artwork.webp" alt="OG Fitness Murals" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                        <div>
+                            <span class="text-[10px] font-mono-tech text-brand uppercase tracking-widest block">SECTOR OMEGA</span>
+                            <span class="text-lg font-heading font-black uppercase italic tracking-wider text-white">
+                                Custom Artwork & Combat Zone
+                            </span>
+                        </div>
+                        <span class="bg-black/80 px-2 py-1 text-[10px] font-mono-tech text-zinc-400 border border-zinc-800">02</span>
+                    </div>
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- MEMBERSHIP TIERS SNAPSHOT                                -->
+    <!-- ======================================================== -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest">TRANSPARENT PRICING</span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-2 mb-3 italic text-white">Membership Tiers</h2>
+                <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech uppercase tracking-wider">Zero hidden fees. Full access to world-class machines, heavy iron, and combat zones.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Tier 1: Monthly -->
+                <div class="tilt-card bg-black border border-zinc-800 p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">STANDARD ACCESS</span>
+                        <h3 class="text-xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">Monthly Pass</h3>
+                        <p class="text-3xl font-heading font-black text-brand mb-6">₹2,500 <span class="text-xs text-zinc-500 font-normal font-mono-tech">/ month</span></p>
+                        
+                        <ul class="space-y-4 text-xs font-mono-tech text-zinc-400 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Full Gym Floor Access</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Standard Equipment Use</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Locker Room Access</li>
+                        </ul>
+                    </div>
+                    <a href="membership.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Select Monthly</a>
+                </div>
+
+                <!-- Tier 2: Quarterly -->
+                <div class="tilt-card bg-black border border-zinc-800 p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">POPULAR PROGRESSION</span>
+                        <h3 class="text-xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">Quarterly Power</h3>
+                        <p class="text-3xl font-heading font-black text-brand mb-6">₹6,500 <span class="text-xs text-zinc-500 font-normal font-mono-tech">/ 3 months</span></p>
+                        
+                        <ul class="space-y-4 text-xs font-mono-tech text-zinc-400 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Full Access + Combat Area</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Unlimited Group Sessions</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> 1 Free Personal Coaching Session</li>
+                        </ul>
+                    </div>
+                    <a href="membership.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Select Quarterly</a>
+                </div>
+
+                <!-- Tier 3: Annual Dual Advantage (Featured) -->
+                <div class="tilt-card bg-zinc-900/90 border-2 border-brand p-8 flex flex-col justify-between relative shadow-2xl shadow-red-950/60">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand text-white text-[9px] font-mono-tech font-black uppercase tracking-widest px-3 py-1 shadow-brand-glow whitespace-nowrap">
+                        ★ EXCLUSIVE 12-MONTH PRIVILEGE
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-mono-tech uppercase tracking-widest text-emerald-400 block mb-1">✨ PAY 6 MO — GET 6 MO FREE</span>
+                        <h3 class="text-xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">Annual Dual Advantage</h3>
+                        <p class="text-3xl font-heading font-black text-brand mb-1">₹15,000 <span class="text-xs text-zinc-400 font-normal font-mono-tech">/ 12 months total</span></p>
+                        <p class="text-[11px] text-zinc-400 font-mono-tech mb-6">Effective rate: only ₹1,250 / month</p>
+                        
+                        <ul class="space-y-4 text-xs font-mono-tech text-zinc-200 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> 12 Full Months Unlimited Floor Access</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Dedicated Locker Assigned</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Free OG Merch Kit & Priority Support</li>
+                        </ul>
+                    </div>
+                    <a href="membership.html" class="block text-center bg-brand hover:bg-red-700 text-white font-black py-3.5 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                        Claim 1-Year Pass
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- INTERACTIVE FAQ ACCORDION                                -->
+    <!-- ======================================================== -->
+    <section class="py-24 bg-black border-t border-zinc-900 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center mb-16">
+                <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-widest">CLARITY & PROTOCOLS</span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight mt-2 italic text-white">Frequently Answered</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-zinc-800 bg-zinc-950">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold uppercase tracking-wider text-white">
+                        <span>What are the exact operating hours for OG Fitness?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-brand transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-zinc-400 font-mono-tech leading-relaxed border-t border-zinc-900 pt-4">
+                        We operate Monday through Saturday from 5:00 AM to 10:00 PM continuously. On Sundays, we are open for morning sessions from 6:00 AM to 12:00 PM.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-zinc-800 bg-zinc-950">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold uppercase tracking-wider text-white">
+                        <span>How does the Executive Trial Pass work?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-brand transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-zinc-400 font-mono-tech leading-relaxed border-t border-zinc-900 pt-4">
+                        You can generate your pass digitally on our website. The pass is securely linked to your device. Present the live pass at our front desk in Durgapuram, Vijayawada to access a 1-hour session with full equipment access and coach walkthrough.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-zinc-800 bg-zinc-950">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold uppercase tracking-wider text-white">
+                        <span>What is the Annual Dual Advantage Offer?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-brand transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-zinc-400 font-mono-tech leading-relaxed border-t border-zinc-900 pt-4">
+                        The Annual Dual Advantage gives you 12 full months of arena access for the price of 6 months (₹15,000 total). It also comes with an assigned locker and an OG merchandise kit.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-zinc-800 bg-zinc-950">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold uppercase tracking-wider text-white">
+                        <span>Are there coaches available for beginners?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-brand transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-zinc-400 font-mono-tech leading-relaxed border-t border-zinc-900 pt-4">
+                        Yes! Our Syndicate Coaches are on the floor during all operational hours to guide correct lifting mechanics, ensure form safety, and set up beginners with custom progression splits.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader Script -->
+    <!-- Core Scripts -->
     <script src="components.js"></script>
+    <script src="three-scene.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

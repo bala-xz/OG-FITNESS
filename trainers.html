@@ -3,45 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Syndicate Trainers | OG Fitness</title>
+    <title>The Syndicate Coaches | OG Fitness</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Content -->
-    <section class="pt-32 pb-24 max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-brand text-xs font-black uppercase tracking-widest">Unbeatable Crew</span>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mt-2 mb-4 italic">The Syndicate</h1>
-            <p class="text-zinc-400">Certified masters of iron and discipline wearing the badge of the OG trainer gear.</p>
-        </div>
+    <!-- Header Section -->
+    <section class="pt-40 pb-16 max-w-7xl mx-auto px-6 text-center relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="bg-zinc-950 border border-zinc-900 p-6 text-center">
-                <div class="w-full h-72 bg-zinc-900 mb-6 bg-cover bg-center" style="background-image: url('image.jpg')"></div>
-                <h3 class="text-xl font-bold uppercase tracking-wider mb-1">OG Certified Trainer</h3>
-                <p class="text-brand text-xs font-bold uppercase tracking-widest mb-4">Lead Strength & Conditioning Coach</p>
-                <p class="text-zinc-400 text-sm">Specialist in heavy compound lifting, technical form, and high-intensity transformation.</p>
-            </div>
-            <div class="bg-zinc-950 border border-zinc-900 p-6 text-center flex flex-col justify-center">
-                <div class="p-8 border border-dashed border-zinc-800">
-                    <h3 class="text-2xl font-black uppercase italic text-brand mb-2">Join The Syndicate</h3>
-                    <p class="text-zinc-400 text-sm mb-6">Are you an elite trainer looking to coach at the most intense gym in town?</p>
-                    <a href="contact.html" class="inline-block bg-brand hover:bg-brand text-white font-black px-6 py-3 uppercase tracking-wider text-xs transition">Apply Now</a>
+        <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-[0.3em] border-b border-brand pb-1">
+            UNBEATABLE DISCIPLINE
+        </span>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-black uppercase tracking-tight mt-3 mb-4 italic text-white">
+            The Syndicate
+        </h1>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto font-mono-tech uppercase tracking-wider">
+            Certified masters of iron, progressive overload, and athletic discipline who uphold the uncompromising standard of OG Fitness.
+        </p>
+    </section>
+
+    <!-- Coaches Grid -->
+    <section class="pb-24 max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            
+            <!-- Coach Card 1: Lead Coach with image.jpg -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between rounded group">
+                <div>
+                    <!-- Coach Image with Overlay -->
+                    <div class="w-full h-80 bg-zinc-900 mb-6 bg-cover bg-top relative overflow-hidden border border-zinc-800 rounded" style="background-image: url('image.jpg');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-3 right-3 bg-brand text-white text-[9px] font-mono-tech font-bold uppercase tracking-widest px-2.5 py-1">
+                            HEAD OF FLOOR
+                        </div>
+                    </div>
+
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-brand block mb-1">OG CERTIFIED HEAD COACH</span>
+                    <h3 class="text-2xl font-heading font-black uppercase tracking-wider mb-1 text-white italic">
+                        Lead Strength Director
+                    </h3>
+                    <p class="text-zinc-400 text-xs font-mono-tech uppercase tracking-wider mb-4">
+                        Biomechanics & High-Load Transformation Specialist
+                    </p>
+                    
+                    <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed">
+                        Specializing in compound power lifts, barbell mechanics, injury prevention, and ruthless recomposition cycles that shatter plateaus.
+                    </p>
+                </div>
+
+                <div class="pt-6 border-t border-zinc-900 mt-6 flex items-center justify-between">
+                    <span class="text-[11px] font-mono-tech text-emerald-400 font-bold">● Floor Active (5AM–10PM)</span>
+                    <a href="contact.html" class="text-brand hover:text-white text-xs font-mono-tech font-bold uppercase tracking-wider underline">
+                        Book Session &rarr;
+                    </a>
                 </div>
             </div>
+
+            <!-- Recruitment / Join The Syndicate Card -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between rounded group">
+                <div class="h-full flex flex-col justify-center items-center text-center border border-dashed border-zinc-800 p-8 sm:p-10">
+                    <div class="w-16 h-16 rounded-full bg-red-600/10 border border-brand flex items-center justify-center text-brand text-2xl mb-6">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">CAREER & COACHING</span>
+                    <h3 class="text-2xl sm:text-3xl font-heading font-black uppercase italic text-brand mb-3">
+                        Join The Syndicate
+                    </h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm font-mono-tech leading-relaxed mb-6 max-w-sm">
+                        Are you an elite trainer, powerlifter, or strength coach with a relentless drive? Coach at Vijayawada’s most intense arena.
+                    </p>
+                    <a href="contact.html" class="bg-brand hover:bg-red-700 text-white font-black px-8 py-3.5 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                        Apply For Coaching Role
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Syndicate Creed Banner -->
+        <div class="mt-16 bg-black border border-zinc-800 p-8 text-center max-w-3xl mx-auto rounded font-mono-tech">
+            <span class="text-xs uppercase tracking-widest text-zinc-500">THE SYNDICATE CODE</span>
+            <p class="text-sm text-zinc-300 italic mt-2">
+                "No ego lifting. Absolute mechanical precision. Unyielding discipline. We build strength that lasts for life."
+            </p>
         </div>
     </section>
 
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader Script -->
+    <!-- Scripts -->
     <script src="components.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -4,102 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location & Contact | OG Fitness</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Content -->
-    <section class="pt-32 pb-24 max-w-5xl mx-auto px-6">
-        <div class="text-center mb-16">
-            <span class="text-brand text-xs font-black uppercase tracking-widest">Connect & Visit</span>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mt-2 mb-4 italic">Location & Contact</h1>
-            <p class="text-zinc-400">Step into our training arena, connect with us online, or send our team a direct inquiry.</p>
-        </div>
+    <!-- Header Section -->
+    <section class="pt-40 pb-16 max-w-7xl mx-auto px-6 text-center relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none"></div>
 
+        <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-[0.3em] border-b border-brand pb-1">
+            CONNECT & COORDINATES
+        </span>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-black uppercase tracking-tight mt-3 mb-4 italic text-white">
+            Location & Base
+        </h1>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto font-mono-tech uppercase tracking-wider">
+            Step directly into our training arena, connect with our management, or speak with the coaching desk.
+        </p>
+    </section>
+
+    <!-- Quick Action Channels -->
+    <section class="pb-16 max-w-5xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-zinc-950 border border-zinc-900 p-8 text-center flex flex-col justify-between">
+            
+            <!-- Direct Hotline -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 text-center flex flex-col justify-between rounded">
                 <div>
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-phone-volume"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Direct Line</h3>
-                    <p class="text-zinc-400 text-xs mb-6">Speak with our front desk for quick assistance.</p>
+                    <div class="text-4xl text-brand mb-4"><i class="fa-solid fa-phone-volume"></i></div>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-2 text-white italic">Direct Hotline</h3>
+                    <p class="text-zinc-400 text-xs font-mono-tech mb-6">Immediate line to front desk reception for memberships & passes.</p>
                 </div>
-                <a href="tel:09553706767" class="block bg-brand hover:bg-brand text-white font-black py-3 uppercase tracking-wider text-xs transition">Call 095537 06767</a>
+                <a href="tel:09553706767" class="block bg-brand hover:bg-red-700 text-white font-black py-3.5 uppercase tracking-wider text-xs transition shadow-brand-glow">
+                    Call 095537 06767
+                </a>
             </div>
 
-            <div class="bg-zinc-950 border border-zinc-900 p-8 text-center flex flex-col justify-between">
+            <!-- Email Support -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 text-center flex flex-col justify-between rounded">
                 <div>
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-envelope"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Email Support</h3>
-                    <p class="text-zinc-400 text-xs mb-6">For memberships, sponsorships, and questions.</p>
+                    <div class="text-4xl text-brand mb-4"><i class="fa-solid fa-envelope"></i></div>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-2 text-white italic">Email Desk</h3>
+                    <p class="text-zinc-400 text-xs font-mono-tech mb-6">For corporate inquiries, syndicate applications, and partnerships.</p>
                 </div>
-                <a href="mailto:support@ogfitness.com" class="block bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Send an Email</a>
+                <a href="mailto:support@ogfitness.com" class="block bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3.5 uppercase tracking-wider text-xs transition">
+                    Send Email
+                </a>
             </div>
 
-            <div class="bg-zinc-950 border border-zinc-900 p-8 text-center flex flex-col justify-between">
+            <!-- Google Maps Base -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 text-center flex flex-col justify-between rounded">
                 <div>
-                    <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
-                    <h3 class="text-lg font-bold uppercase tracking-wider mb-2">Google Maps</h3>
-                    <p class="text-zinc-400 text-xs mb-6">Door No 24-25-60, Durgapuram, BRTS Road.</p>
+                    <div class="text-4xl text-brand mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="text-lg font-heading font-black uppercase tracking-wider mb-2 text-white italic">Google Pin</h3>
+                    <p class="text-zinc-400 text-xs font-mono-tech mb-6">Door No 24-25-60, Durgapuram, BRTS Road, Vijayawada.</p>
                 </div>
-                <a href="https://share.google/8twlrd1RczQuOFBE2" target="_blank" class="block bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Open Pin</a>
+                <a href="https://maps.app.goo.gl/a91huxmhqriDsu438" target="_blank" class="block bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3.5 uppercase tracking-wider text-xs transition">
+                    Open Navigation Pin
+                </a>
             </div>
+
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
-            <div class="bg-zinc-950 border border-zinc-900 p-8 md:p-10">
-                <h3 class="text-xl font-black uppercase tracking-wider mb-2 italic">Send a Message</h3>
-                <p class="text-zinc-400 text-xs mb-6">Fill out the form below and our team will get back to you shortly.</p>
+        <!-- Form and Operating Timings Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            
+            <!-- Contact Inquiry Form -->
+            <div class="bg-zinc-950 border border-zinc-800 p-8 md:p-10 rounded shadow-2xl">
+                <span class="text-brand text-xs font-mono-tech font-bold uppercase tracking-widest">TRANSMIT INQUIRY</span>
+                <h3 class="text-2xl font-heading font-black uppercase tracking-wider mb-2 italic text-white mt-1">
+                    Send Direct Message
+                </h3>
+                <p class="text-zinc-400 text-xs font-mono-tech mb-6">Fill out the coordinates below and our team will get back to you shortly.</p>
                 
-                <form action="#" method="POST" class="space-y-4">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 font-mono-tech">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-zinc-400 font-bold mb-2">Full Name</label>
-                        <input type="text" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-sm focus:outline-none focus:border-brand transition" placeholder="Arjun">
+                        <label class="block text-[11px] uppercase tracking-widest text-zinc-400 font-bold mb-2">Full Name</label>
+                        <input type="text" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-xs focus:outline-none focus:border-brand transition" placeholder="Arjun Kumar">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-zinc-400 font-bold mb-2">Phone Number</label>
-                        <input type="tel" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-sm focus:outline-none focus:border-brand transition" placeholder="+91 XXXXX XXXXX">
+                        <label class="block text-[11px] uppercase tracking-widest text-zinc-400 font-bold mb-2">Phone Number</label>
+                        <input type="tel" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-xs focus:outline-none focus:border-brand transition" placeholder="+91 95537 00000">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-zinc-400 font-bold mb-2">Message</label>
-                        <textarea rows="4" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-sm focus:outline-none focus:border-brand transition" placeholder="How can we help you?"></textarea>
+                        <label class="block text-[11px] uppercase tracking-widest text-zinc-400 font-bold mb-2">Message or Goal</label>
+                        <textarea rows="4" required class="w-full bg-black border border-zinc-800 text-zinc-100 px-4 py-3 text-xs focus:outline-none focus:border-brand transition" placeholder="Inquiring about membership or personal training..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-brand hover:bg-brand text-white font-black py-3 uppercase tracking-wider text-xs transition">Send Inquiry</button>
+                    <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-black py-4 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                        Send Message &rarr;
+                    </button>
+                    <div id="contactSuccess" class="hidden p-3 bg-emerald-950/80 border border-emerald-600/50 text-emerald-400 text-xs font-mono-tech text-center">
+                        ✓ Transmission received. Our front desk will call you shortly.
+                    </div>
                 </form>
             </div>
 
-            <div class="space-y-8">
-                <div class="bg-zinc-950 border border-zinc-900 p-8">
+            <!-- Operating Details & Network -->
+            <div class="space-y-8 font-mono-tech">
+                <div class="bg-zinc-950 border border-zinc-800 p-8 rounded">
                     <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-clock"></i></div>
-                    <h3 class="text-xl font-bold uppercase tracking-wider mb-2">Operating Hours</h3>
-                    <p class="text-zinc-400 text-sm mb-1">Monday – Saturday: 5:00 AM – 10:00 PM</p>
-                    <p class="text-zinc-400 text-sm">Sunday: 6:00 AM – 12:00 PM</p>
+                    <h3 class="text-xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">
+                        Operating Hours
+                    </h3>
+                    <div class="space-y-2 text-xs text-zinc-400">
+                        <p class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-white font-bold">Monday – Saturday:</span>
+                            <span class="text-brand font-bold">5:00 AM – 10:00 PM</span>
+                        </p>
+                        <p class="flex justify-between pt-1">
+                            <span class="text-white font-bold">Sunday:</span>
+                            <span class="text-zinc-400">6:00 AM – 12:00 PM</span>
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-zinc-900">
+                        <div class="live-arena-status text-xs"></div>
+                    </div>
                 </div>
 
-                <div class="bg-zinc-950 border border-zinc-900 p-8">
+                <div class="bg-zinc-950 border border-zinc-800 p-8 rounded">
                     <div class="text-3xl text-brand mb-4"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h3 class="text-xl font-bold uppercase tracking-wider mb-4">Digital Network</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/og.fitness___/" target="_blank" class="flex-1 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 px-4 text-center uppercase tracking-wider text-xs transition flex items-center justify-center space-x-2">
-                            <i class="fa-brands fa-instagram text-brand"></i><span>Instagram</span>
+                    <h3 class="text-xl font-heading font-black uppercase tracking-wider mb-4 text-white italic">
+                        Digital Channels
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://instagram.com/og.fitness___/" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3.5 px-4 text-center uppercase tracking-wider text-xs transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-instagram text-brand text-base"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://youtube.com" target="_blank" class="flex-1 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 px-4 text-center uppercase tracking-wider text-xs transition flex items-center justify-center space-x-2">
-                            <i class="fa-brands fa-youtube text-brand"></i><span>YouTube</span>
+                        <a href="https://youtube.com" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3.5 px-4 text-center uppercase tracking-wider text-xs transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-youtube text-brand text-base"></i>
+                            <span>YouTube</span>
                         </a>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader Script -->
+    <!-- Scripts -->
     <script src="components.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Transmitting...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('contactSuccess').classList.remove('hidden');
+                btn.style.display = 'none';
+                if (window.OGSound) window.OGSound.playBeep(880, 0.15);
+            }, 800);
+        }
+    </script>
 </body>
 </html>

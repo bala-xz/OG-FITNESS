@@ -3,72 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Plans | OG Fitness</title>
+    <title>Membership Tiers & Passes | OG Fitness</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff1e27',
+                        brandHover: '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Luxury Style -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden">
+<body class="bg-black text-zinc-100 font-sans antialiased selection-brand overflow-x-hidden bg-grid-pattern">
 
     <!-- Navbar Loaded Automatically -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Content -->
-    <section class="pt-32 pb-24 max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-brand text-xs font-black uppercase tracking-widest">The Code</span>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mt-2 mb-4 italic">Membership Tiers</h1>
-            <p class="text-zinc-400">No hidden fees. Full access to world-class machines, heavy iron, and combat zones.</p>
+    <!-- Header Section -->
+    <section class="pt-40 pb-16 max-w-7xl mx-auto px-6 text-center relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span class="text-brand text-xs font-mono-tech font-black uppercase tracking-[0.3em] border-b border-brand pb-1">
+            THE CODE OF ACCESS
+        </span>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-black uppercase tracking-tight mt-3 mb-4 italic text-white">
+            Membership Tiers
+        </h1>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto font-mono-tech uppercase tracking-wider">
+            Uncompromising training access with zero hidden fees. Calibrated equipment, heavy iron, combat zones, and dedicated coaching.
+        </p>
+    </section>
+
+    <!-- Pricing Cards Grid -->
+    <section class="pb-24 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            
+            <!-- Tier 1: Monthly -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 flex flex-col justify-between rounded">
+                <div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">STANDARD PASS</span>
+                    <h3 class="text-2xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">Monthly Pass</h3>
+                    <p class="text-4xl font-heading font-black text-brand mb-1">₹2,500</p>
+                    <p class="text-xs text-zinc-500 font-mono-tech mb-6">/ month billed monthly</p>
+                    
+                    <div class="border-t border-zinc-900 pt-6">
+                        <ul class="space-y-4 text-xs font-mono-tech text-zinc-400 mb-8">
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Full Gym Floor Access (Mon–Sat)</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Standard Resistance & Cardio Suite</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Locker & Shower Facility Access</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-zinc-600">
+                                <i class="fa-solid fa-xmark text-zinc-700 text-sm"></i>
+                                <span>Combat Zone & Bag Access</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-zinc-600">
+                                <i class="fa-solid fa-xmark text-zinc-700 text-sm"></i>
+                                <span>Personal Coach Allocation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3.5 uppercase tracking-wider text-xs transition">
+                    Enroll Monthly
+                </a>
+            </div>
+
+            <!-- Tier 2: Quarterly -->
+            <div class="tilt-card bg-zinc-950 border border-zinc-800 p-8 flex flex-col justify-between rounded">
+                <div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-zinc-500 block mb-1">PROGRESSION PACK</span>
+                    <h3 class="text-2xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">Quarterly Power</h3>
+                    <p class="text-4xl font-heading font-black text-brand mb-1">₹6,500</p>
+                    <p class="text-xs text-zinc-500 font-mono-tech mb-6">/ 3 months (Save ₹1,000)</p>
+                    
+                    <div class="border-t border-zinc-900 pt-6">
+                        <ul class="space-y-4 text-xs font-mono-tech text-zinc-300 mb-8">
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Full Gym Access + Strike Combat Zone</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Unlimited High-Intensity Group Classes</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>1 Free 1-on-1 Syndicate Coaching Session</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Custom Progression Workout Split Plan</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-zinc-600">
+                                <i class="fa-solid fa-xmark text-zinc-700 text-sm"></i>
+                                <span>Permanent Assigned Locker</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3.5 uppercase tracking-wider text-xs transition">
+                    Enroll Quarterly
+                </a>
+            </div>
+
+            <!-- Tier 3: Annual Dual Advantage (Featured 6+6 Offer) -->
+            <div class="tilt-card bg-gradient-to-b from-zinc-900 to-black border-2 border-brand p-8 flex flex-col justify-between relative shadow-2xl shadow-red-950/70 rounded">
+                <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand text-white text-[9px] font-mono-tech font-black uppercase tracking-widest px-3.5 py-1 shadow-brand-glow whitespace-nowrap">
+                    ★ ANNUAL DUAL ADVANTAGE
+                </span>
+
+                <div>
+                    <span class="text-[10px] font-mono-tech uppercase tracking-widest text-emerald-400 font-bold block mb-1">
+                        ✨ PAY 6 MONTHS — GET 6 MONTHS FREE
+                    </span>
+                    <h3 class="text-2xl font-heading font-black uppercase tracking-wider mb-2 text-white italic">12-Month Privilege</h3>
+                    <p class="text-4xl font-heading font-black text-brand mb-1">₹15,000</p>
+                    <p class="text-xs text-zinc-400 font-mono-tech mb-6">/ 12 months full unlimited access</p>
+                    
+                    <div class="border-t border-zinc-800 pt-6">
+                        <ul class="space-y-4 text-xs font-mono-tech text-white mb-8">
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span class="font-bold">12 Full Months Unlimited Access</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Dedicated Permanent Locker Assigned</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Free OG Syndicate Merch Kit</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Priority Coach Consultation & Form Checks</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-brand text-sm"></i>
+                                <span>Guest Pass Privileges (2 Passes / month)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="block text-center bg-brand hover:bg-red-700 text-white font-black py-4 uppercase tracking-widest text-xs transition shadow-brand-glow">
+                    Claim Dual Advantage Now
+                </a>
+            </div>
+
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-zinc-950 border border-zinc-900 p-8 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold uppercase tracking-wider mb-2">Monthly Pass</h3>
-                    <p class="text-3xl font-black text-brand mb-6">₹2,500 <span class="text-xs text-zinc-500 font-normal">/ month</span></p>
-                    <ul class="space-y-4 text-sm text-zinc-400 mb-8">
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Full Gym Floor Access</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Standard Equipment Use</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Locker Room Access</li>
-                    </ul>
-                </div>
-                <a href="contact.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Select Plan</a>
+        <!-- Executive Trial Pass Box -->
+        <div class="mt-16 bg-zinc-950 border border-zinc-800 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div class="space-y-2 text-left">
+                <span class="text-brand text-xs font-mono-tech font-bold uppercase tracking-widest">FIRST TIME AT OG?</span>
+                <h3 class="text-2xl sm:text-3xl font-heading font-black uppercase italic text-white">
+                    Experience The Arena With A 1-Day Trial Pass
+                </h3>
+                <p class="text-xs text-zinc-400 font-mono-tech">
+                    Authenticate your device and receive immediate access for a full workout session.
+                </p>
             </div>
-
-            <div class="bg-zinc-950 border border-zinc-900 p-8 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold uppercase tracking-wider mb-2">Quarterly Power</h3>
-                    <p class="text-3xl font-black text-brand mb-6">₹6,500 <span class="text-xs text-zinc-500 font-normal">/ 3 months</span></p>
-                    <ul class="space-y-4 text-sm text-zinc-400 mb-8">
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Full Access + Combat Area</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Unlimited Group Sessions</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> 1 Free Personal Coaching Session</li>
-                    </ul>
-                </div>
-                <a href="contact.html" class="block text-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold py-3 uppercase tracking-wider text-xs transition">Select Plan</a>
-            </div>
-
-            <div class="bg-zinc-950 border-2 border-brand p-8 flex flex-col justify-between relative shadow-2xl shadow-red-950/50 lg:col-span-1 md:col-span-2">
-                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand text-white text-[10px] font-black uppercase tracking-widest px-3 py-1">Exclusive 12-Month Privilege</span>
-                <div>
-                    <h3 class="text-xl font-bold uppercase tracking-wider mb-2">Annual Dual Advantage Pass</h3>
-                    <p class="text-3xl font-black text-brand mb-1">₹15,000 <span class="text-xs text-zinc-500 font-normal">/ 12 months total</span></p>
-                    <p class="text-xs text-emerald-400 font-bold uppercase tracking-wider mb-6">✨ Pay for 6 Months — Get 6 Months Free</p>
-                    <ul class="space-y-4 text-sm text-zinc-300 mb-8">
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> 12 Full Months of Unlimited Floor Access</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Dedicated Locker Assigned</li>
-                        <li><i class="fa-solid fa-check text-brand mr-2"></i> Free OG Merch Kit & Priority Support</li>
-                    </ul>
-                </div>
-                <a href="contact.html" class="block text-center bg-brand hover:bg-brand text-white font-black py-3 uppercase tracking-wider text-xs transition">Claim 1-Year Membership</a>
-            </div>
+            <a href="freepass.html" class="shrink-0 bg-brand hover:bg-red-700 text-white font-black px-8 py-4 uppercase tracking-widest text-xs transition shadow-brand-glow whitespace-nowrap">
+                Generate Digital Pass &rarr;
+            </a>
         </div>
     </section>
 
     <!-- Footer Loaded Automatically -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader Script -->
+    <!-- Scripts -->
     <script src="components.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
